@@ -1,0 +1,83 @@
+<mat-card>
+    <mat-card-content>
+        <form [formGroup]="user" (ngSubmit)="onSubmit()" class="form">
+            <h1>Registreer</h1>
+            <mat-form-field class="fill-width" appearance="outline">
+                <mat-label>
+                    <mat-icon>email</mat-icon> Email
+                </mat-label>
+                <input matInput aria-label="email" type="text" formControlName="email" />
+                <mat-error *ngIf="user.get('email').errors && user.get('email').touched">
+                    {{ getErrorMessage(user.get("email").errors) }}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="fill-width" appearance="outline" style="width: 47.5%; margin-right: 5%;">
+                <mat-label>
+                    <mat-icon>person</mat-icon> Voornaam
+                </mat-label>
+                <input matInput aria-label="firstName" type="text" formControlName="firstName" />
+                <mat-error *ngIf="user.get('firstName').errors && user.get('firstName').touched">
+                    {{ getErrorMessage(user.get("firstName").errors) }}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="fill-width" appearance="outline" style="width: 47.5%;">
+                <mat-label>
+                    <mat-icon>person</mat-icon> Familienaam
+                </mat-label>
+                <input matInput aria-label="firstName" type="text" formControlName="firstName" />
+                <mat-error *ngIf="user.get('firstName').errors && user.get('firstName').touched">
+                    {{ getErrorMessage(user.get("firstName").errors) }}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="fill-width" appearance="outline">
+                <mat-label>
+                    <mat-icon>account_balance</mat-icon> School
+                </mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let school of scholen" [value]="school">
+                      {{school}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="user.get('school').errors && user.get('school').touched">
+                    {{ getErrorMessage(user.get("school").errors) }}
+                </mat-error>
+            </mat-form-field>
+            <div formGroupName="passwordGroup">
+                <mat-form-field class="fill-width" appearance="outline" matTooltipPosition="right"
+                    matTooltip="Een wachtwoord moet voldoen aan volgende voorwaarden: minstens 1 hoofdletter, getal en speciaal karakter (! ? | % $ # _ - @)">
+                    <mat-label>
+                        <mat-icon>lock</mat-icon>Wachtwoord
+                    </mat-label>
+                    <input matInput aria-label="password" type="password" formControlName="password" />
+                    <mat-error style="display: block; margin-bottom: 3px;" *ngIf="
+              user.get('passwordGroup').get('password').errors &&
+              user.get('passwordGroup').get('password').touched
+            ">
+                        {{
+              getErrorMessage(user.get("passwordGroup").get("password").errors)
+            }}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="fill-width" appearance="outline">
+                    <mat-label>
+                        <mat-icon>lock</mat-icon>Bevestig wachtwoord
+                    </mat-label>
+                    <input matInput aria-label="comfirm password" type="password" formControlName="confirmPassword" />
+                </mat-form-field>
+                <mat-error style="FLOAT: LEFT; font-size: 0.8em; margin-top: -24px;" *ngIf="
+            user.get('passwordGroup').errors &&
+            user.get('passwordGroup').get('confirmPassword').touched &&
+            user.get('passwordGroup').get('password').touched
+          ">
+                    {{ getErrorMessage(user.get("passwordGroup").errors) }}
+                </mat-error>
+            </div>
+            <button mat-raised-button color="primary">Submit</button>
+            <h4>
+                Heb je al een account? Klik
+                <a [routerLink]="['/User/Login']">hier</a> to om in te loggen.
+                <img class="logo" src="https://pro.g-o.be/blog/Documents/GO%21_VLA_Logo_2regels_transparant.png">
+            </h4>
+        </form>
+    </mat-card-content>
+</mat-card>

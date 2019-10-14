@@ -1,7 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -13,15 +11,12 @@ export class LoginComponent implements OnInit {
   public user: FormGroup;
 
   constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private snackBar: MatSnackBar
+    private fb: FormBuilder
   ) {}
 
   ngOnInit() {
     this.user = this.fb.group({
-      email: [
-        '',
+      email: ['',
         [
           Validators.required,
           Validators.pattern(

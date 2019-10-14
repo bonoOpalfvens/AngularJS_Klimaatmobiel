@@ -10,7 +10,9 @@ import {
   MatCardModule,
   MatListModule,
   MatSidenavModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatOptionModule,
+  MatSelectModule
 } from '@angular/material';
 
 
@@ -29,7 +31,9 @@ import {
     MatInputModule,
     MatSnackBarModule,
     MatButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -41,7 +45,9 @@ import {
     MatInputModule,
     MatSnackBarModule,
     MatButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatOptionModule,
+    MatSelectModule
   ]
 })
 export class MaterialModule { }

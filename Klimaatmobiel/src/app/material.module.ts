@@ -2,23 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MatToolbarModule,
-  MatMenuModule,
   MatButtonModule,
   MatIconModule,
   MatTooltipModule,
   MatInputModule,
   MatFormFieldModule,
-  MatAutocompleteModule,
   MatCardModule,
   MatListModule,
-  MatGridListModule,
   MatSidenavModule,
-  MatProgressBarModule,
-  MatButtonToggleModule,
-  MatPaginatorModule,
-  MatSnackBarModule,
-  MatExpansionModule
+  MatSnackBarModule
 } from '@angular/material';
 
 
@@ -31,14 +23,25 @@ import {
     BrowserAnimationsModule,
     // AngularMaterial
     MatSidenavModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatInputModule,
+    MatSnackBarModule,
+    MatButtonModule,
+    MatTooltipModule
   ],
   exports: [
     BrowserAnimationsModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
-
+    MatListModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatInputModule,
+    MatSnackBarModule,
+    MatButtonModule,
+    MatTooltipModule
   ]
 })
 export class MaterialModule { }

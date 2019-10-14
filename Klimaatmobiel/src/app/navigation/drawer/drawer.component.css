@@ -1,0 +1,22 @@
+.sidenav-container {
+  height: 100%;
+  position: fixed;
+  left: 0;
+  z-index: 10;
+}
+
+.mat-drawer {
+  background-color: var(--background-dark) !important;
+}
+
+.active {
+  background-color: #3c4b9c !important;
+}
+
+.content {
+    margin-left: 70px;
+}
+
+mat-list-item {
+  color: white !important;
+}

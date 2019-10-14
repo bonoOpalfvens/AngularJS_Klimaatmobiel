@@ -1,6 +1,26 @@
 /* Global styles */
 
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import '~normalize.css';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Variables */
+:root {
+    --background-dark: #1A1A1D;
+
+    /* GO! huisstijl */
+    --go-magenta: rgb(195,0,74);
+    --go-donkergrijs: rgb(170,170,170);
+    --go-lichtgrijs: rgb(200,200,200);
+    --go-blauw: rgb(0,179,213);
+    --go-groen: rgb(169,185,5);
+    --go-oranje: rgb(240,136,0);
+    --go-beige: rgb(240,239,228);
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body::-webkit-scrollbar{
+    width: 0;
+}

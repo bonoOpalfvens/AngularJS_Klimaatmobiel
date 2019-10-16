@@ -89,22 +89,22 @@ export class RegisterComponent implements OnInit {
             if (val) {
               this.router.navigate(['/Home']);
               this.snackBar.open(
-                `Succesfully registered user: ${this.user.value.email}`,
-                'Dismiss',
+                `Succesvol geregistreerd als: ${this.user.value.email}`,
+                'Sluit',
                 { duration: 8000 }
               );
             } else {
               this.snackBar.open(
-                `Could not register user (╯°□°)╯︵ ┻━┻`,
-                'Dismiss',
+                `Gebruiker kon niet geregistreerd worden`,
+                'Sluit',
                 { duration: 8000 }
               );
             }
           },
           (err: HttpErrorResponse) => {
             this.snackBar.open(
-              `Error while trying to register user: ${this.user.value.email}`,
-              'Dismiss',
+              `Fout bij het registreren van gebruiker: ${this.user.value.email}`,
+              'Sluit',
               { duration: 15000 }
             );
             console.log(err);

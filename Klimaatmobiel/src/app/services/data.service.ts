@@ -29,7 +29,7 @@ export class DataService {
 
   loginUser(email: string, password: string): any {
     return this.http.post(
-      `${environment.apiUrl}/login`,
+      `${environment.apiUrl}/Account/login`,
       { email, password },
       { responseType: 'text' }
     );

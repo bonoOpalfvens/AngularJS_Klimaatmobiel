@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: 'User/Login', component: LoginComponent },
   { path: 'User/Register', component: RegisterComponent },
 
-  { path: '', redirectTo: 'Home', pathMatch: 'full' },
+  { path: '', redirectTo: 'User/Login', pathMatch: 'full' },
   { path: '**', redirectTo: 'NotFound', pathMatch: 'full' }
 ];
 

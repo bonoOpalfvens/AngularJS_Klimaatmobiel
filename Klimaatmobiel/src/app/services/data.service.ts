@@ -18,4 +18,20 @@ export class DataService {
       share()
     );
   }
+
+  registerUser(email: string, firstName: string, lastName: string, school: number, password: string, confirmPassword: string): any {
+    return this.http.post(
+      `${environment.apiUrl}/Account/register`,
+      { firstName, lastName, passwordConfirmation: confirmPassword, schoolId: school, email, password },
+      { responseType: 'text' }
+    );
+  }
+
+  loginUser(email: string, password: string): any {
+    return this.http.post(
+      `${environment.apiUrl}/login`,
+      { email, password },
+      { responseType: 'text' }
+    );
+  }
 }

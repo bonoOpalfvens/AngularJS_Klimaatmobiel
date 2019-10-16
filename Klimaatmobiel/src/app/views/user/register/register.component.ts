@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { School } from 'src/app/models/school';
+import { Observable } from 'rxjs';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-register',
@@ -7,14 +10,17 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  public scholen$: Observable<School[]>;
   public user: FormGroup;
-  public scholen = ['school 1', 'school 2', 'school3'];
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private dataService: DataService
   ) { }
 
   ngOnInit() {
+    this.scholen$ = this.dataService.scholen$;
+
     this.user = this.fb.group({
       email: ['',
         [

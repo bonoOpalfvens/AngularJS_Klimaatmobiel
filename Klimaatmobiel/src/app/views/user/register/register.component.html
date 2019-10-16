@@ -34,7 +34,7 @@
                     <mat-icon>account_balance</mat-icon> School
                 </mat-label>
                 <mat-select>
-                    <mat-option *ngFor="let school of scholen" [value]="school">
+                    <mat-option *ngFor="let school of scholen$ | async" [value]="school.Naam">
                       {{school}}
                     </mat-option>
                 </mat-select>

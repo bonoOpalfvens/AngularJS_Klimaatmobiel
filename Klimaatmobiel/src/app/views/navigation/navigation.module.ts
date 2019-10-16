@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DrawerComponent } from './drawer/drawer.component';
-import { MaterialModule } from '../material.module';
-import { AppRoutingModule } from '../app-routing.module';
+import { MaterialModule } from '../../material.module';
+import { AppRoutingModule } from '../../app-routing.module';
 
 
 

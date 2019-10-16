@@ -34,8 +34,8 @@
                     <mat-icon>account_balance</mat-icon> School
                 </mat-label>
                 <mat-select>
-                    <mat-option *ngFor="let school of scholen$ | async" [value]="school.Naam">
-                      {{school}}
+                    <mat-option *ngFor="let school of scholen$ | async" [value]="school.Name">
+                      {{school.Name}}
                     </mat-option>
                 </mat-select>
                 <mat-error *ngIf="user.get('school').errors && user.get('school').touched">

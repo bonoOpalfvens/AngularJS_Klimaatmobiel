@@ -2,20 +2,22 @@ import { ModuleMateriaal } from './module-materiaal';
 
 export class KlimModule {
     private _id: number;
+    
 
     constructor(
         private _moduleNaam: string,
         private _standaardBudget: number,
         private _duurInMinuten: number,
-        private _moduleMaterialen : ModuleMateriaal[]
+        private _moduleMaterialen : ModuleMateriaal[]    
     ) {}
+
 
     static fromJSON(json: any): KlimModule {
         const klim = new KlimModule(
             json.moduleNaam,
             json.standaardBudget,
             json.duurInMinuten,
-            json.ModuleMateriaal.map(ModuleMateriaal.fromJSON)
+            json.moduleMaterialen.map(ModuleMateriaal.fromJSON)
         );
         klim._id = json.moduleId;
         return klim;
@@ -23,11 +25,10 @@ export class KlimModule {
 
     toJSON(): any {
         return {
-          moduleId: this._id,
           moduleNaam: this._moduleNaam,
           standaardBudget: this._standaardBudget,
           duurInMinuten: this._duurInMinuten,
-          moduleMateriaal: this._moduleMaterialen.map(m => m.toJSON())
+          moduleMaterialen: this._moduleMaterialen.map(m => m.toJSON())
         };
       }
 

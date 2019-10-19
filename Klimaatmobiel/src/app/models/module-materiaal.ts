@@ -21,8 +21,7 @@ export class ModuleMateriaal {
 
     toJSON(): any {
         return {
-          moduleMateriaalId: this._id,
-          materiaal: this._materiaal,
+          materiaalId: this._materiaal.id,
           prijs: this._prijs,
           aantalInStock: this._aantalInStock
         };

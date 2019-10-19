@@ -15,7 +15,8 @@ export class DataService {
   constructor(private http: HttpClient) {}
 
   postModule(klimModule : KlimModule) : any {
-    return this.http.post(`${environment.apiUrl}/Module/`, klimModule.toJSON())
+    console.log( klimModule.toJSON())
+    return this.http.post(`${environment.apiUrl}/Module/`, klimModule.toJSON(),  { responseType: 'text' })
     .pipe();
   }
 

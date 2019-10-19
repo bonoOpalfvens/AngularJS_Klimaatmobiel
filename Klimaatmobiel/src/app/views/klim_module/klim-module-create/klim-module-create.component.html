@@ -23,14 +23,13 @@
               matInput
               aria-label="standaardBudget"
               placeholder="Standaard budget"
-              type="text"
+              type="number"
               formControlName="standaardBudget"
               required
             />
             <mat-error
               *ngIf="klimModule.get('standaardBudget').errors && klimModule.get('standaardBudget').touched"
             >
-              
             </mat-error>
           </mat-form-field>
 
@@ -39,7 +38,7 @@
               matInput
               aria-label="duurInMinuten"
               placeholder="Duur in minuten"
-              type="text"
+              type="number"
               formControlName="duurInMinuten"
               required
             />
@@ -48,10 +47,53 @@
             >
             </mat-error>
           </mat-form-field>
+          <button type="submit" mat-raised-button>
+              Creëer Module
+          </button>
+          <div
+            formArrayName="materialen"
+            *ngFor="let item of materialen.controls; let i = index">
+              <div [formGroupName]="i">
+                <mat-form-field appearance="outline">
+
+                  <mat-label>
+                      <mat-icon>account_balance</mat-icon> Materialen
+                  </mat-label>
+
+                  <mat-select [(value)]="item.materiaal" formControlName="materiaal">
+                      <mat-option *ngFor="let materiaal of materialen$ | async" [value]="materiaal" >
+                        {{materiaal.materiaalNaam}}
+                      </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <input
+                    matInput
+                    aria-label="prijs"
+                    placeholder="Prijs"
+                    type="number"
+                    formControlName="prijs"
+                    required
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <input
+                    matInput
+                    aria-label="aantalInStock"
+                    placeholder="Aantal in Stock"
+                    type="number"
+                    formControlName="aantalInStock"
+                    required
+                  />
+                </mat-form-field>
+                <mat-error *ngIf="item.errors && item.get('name').touched">
+                    {{ getErrorMessage(item.errors) }}
+                  </mat-error>
+              </div>
+          </div>
+
         
-        <button type="submit" mat-raised-button [disabled]="!klimModule.valid">
-          Creëer Module
-        </button>
       </form>
     </mat-card-content>
   </mat-card>

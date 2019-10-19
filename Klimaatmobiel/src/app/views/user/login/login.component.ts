@@ -10,6 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
   @Output() public newUser = new EventEmitter();
   public user: FormGroup;

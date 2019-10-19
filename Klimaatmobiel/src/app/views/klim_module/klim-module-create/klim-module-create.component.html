@@ -1,0 +1,57 @@
+<mat-card>
+    <mat-card-title>Creëer Module</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="klimModule" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <input
+            matInput
+            aria-label="moduleNaam"
+            placeholder="Modulenaam"
+            type="text"
+            formControlName="moduleNaam"
+            required
+          />
+          <mat-error
+            *ngIf="klimModule.get('moduleNaam').errors && klimModule.get('moduleNaam').touched"
+          >
+            
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input
+              matInput
+              aria-label="standaardBudget"
+              placeholder="Standaard budget"
+              type="text"
+              formControlName="standaardBudget"
+              required
+            />
+            <mat-error
+              *ngIf="klimModule.get('standaardBudget').errors && klimModule.get('standaardBudget').touched"
+            >
+              
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input
+              matInput
+              aria-label="duurInMinuten"
+              placeholder="Duur in minuten"
+              type="text"
+              formControlName="duurInMinuten"
+              required
+            />
+            <mat-error
+              *ngIf="klimModule.get('duurInMinuten').errors && klimModule.get('duurInMinuten').touched"
+            >
+            </mat-error>
+          </mat-form-field>
+        
+        <button type="submit" mat-raised-button [disabled]="!klimModule.valid">
+          Creëer Module
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>

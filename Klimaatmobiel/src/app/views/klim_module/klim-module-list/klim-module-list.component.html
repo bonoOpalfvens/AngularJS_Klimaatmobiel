@@ -1,0 +1,8 @@
+<div>
+    <button [routerLink]="['/Module/CreeerModule']">
+            <mat-icon mat-list-icon>eco</mat-icon>Creëer Module
+    </button>
+    <div *ngFor = "let klimModule of klimModules">
+        <app-klim-module-view [klimModule]="klimModule" data-cy="klimModuleCard"></app-klim-module-view>
+    </div>
+</div>

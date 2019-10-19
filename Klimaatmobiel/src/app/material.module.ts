@@ -44,7 +44,6 @@ import {
     MatCardModule,
     MatInputModule,
     MatSnackBarModule,
-    MatButtonModule,
     MatTooltipModule,
     MatOptionModule,
     MatSelectModule

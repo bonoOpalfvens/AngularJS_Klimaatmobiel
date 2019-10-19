@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { map, share } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { School } from '../models/school';
+import { KlimModule } from '../models/klim-module';
+import { Materiaal } from '../models/materiaal';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,42 @@ import { School } from '../models/school';
 export class DataService {
 
   constructor(private http: HttpClient) {}
+
+  postModule(klimModule : KlimModule) : any {
+    return this.http.post(`${environment.apiUrl}/Module/`, klimModule.toJSON())
+    .pipe();
+  }
+
+  deleteKlimModule(id) {
+    return this.http
+      .delete(`${environment.apiUrl}/Module/${id}`)
+      .pipe();
+  }
+
+  updateKlimModule(klimModule: KlimModule) {
+    return this.http
+      .put(`${environment.apiUrl}/Module/${klimModule.id}`, klimModule.toJSON());
+  }
+
+  getKlimModule$(id): Observable<KlimModule> {
+    return this.http
+      .get(`${environment.apiUrl}/Module/${id}`)
+      .pipe(map((klim: any): KlimModule => KlimModule.fromJSON(klim)));
+  }
+
+  get materialen$(): Observable<Materiaal[]> {
+    return this.http.get(`${environment.apiUrl}/Materiaal/get_all`).pipe(
+      map((list: any[]): Materiaal[] => list.map(Materiaal.fromJSON)),
+      share()
+    );
+  }
+
+  get klimModules$(): Observable<KlimModule[]> {
+    return this.http.get(`${environment.apiUrl}/Module/get_all`).pipe(
+      map((list: any[]): KlimModule[] => list.map(KlimModule.fromJSON)),
+      share()
+    );
+  }
 
   get scholen$(): Observable<School[]> {
     return this.http.get(`${environment.apiUrl}/School/get_all`).pipe(

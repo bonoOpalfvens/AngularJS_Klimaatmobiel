@@ -29,7 +29,7 @@
           formControlName="beschrijving"></textarea>
       </mat-form-field>
       <button type="submit" matInput mat-raised-button
-        [disabled]="!klimModule.get('standaardBudget').errors && klimModule.get('duurInMinuten').errors">
+        [disabled]="klimModule.get('standaardBudget').errors ||  klimModule.get('duurInMinuten').errors || klimModule.get('moduleNaam').errors">
         Creëer Module
       </button>
     </form>

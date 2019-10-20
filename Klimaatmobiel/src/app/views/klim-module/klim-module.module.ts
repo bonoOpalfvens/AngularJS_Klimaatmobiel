@@ -7,21 +7,30 @@ import { KlimModuleCreateComponent } from './klim-module-create/klim-module-crea
 import { KlimModuleDetailsComponent } from './klim-module-details/klim-module-details.component';
 import { KlimModuleListComponent } from './klim-module-list/klim-module-list.component';
 import { KlimModuleViewComponent } from './klim-module-view/klim-module-view.component';
-import { MatButton } from '@angular/material';
+
+import { AddMateriaalComponent } from './add-materiaal/add-materiaal.component';
 
 @NgModule({
-  declarations: [KlimModuleCreateComponent, KlimModuleDetailsComponent, KlimModuleListComponent, KlimModuleViewComponent],
+  declarations: [
+    KlimModuleCreateComponent,
+    KlimModuleDetailsComponent,
+    KlimModuleListComponent,
+    KlimModuleViewComponent,
+    AddMateriaalComponent],
+
   imports: [
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
     RouterModule
   ],
+  entryComponents: [AddMateriaalComponent],
   exports: [
     KlimModuleCreateComponent,
     KlimModuleDetailsComponent,
     KlimModuleListComponent,
-    KlimModuleViewComponent
+    KlimModuleViewComponent,
+    AddMateriaalComponent
   ]
 })
 export class KlimModuleModule { }

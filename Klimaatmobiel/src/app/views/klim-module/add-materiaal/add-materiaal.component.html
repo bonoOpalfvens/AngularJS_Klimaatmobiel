@@ -1,0 +1,37 @@
+<mat-dialog-content>
+  <form [formGroup]="materiaalForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>
+        <mat-icon>account_balance</mat-icon> Materialen
+      </mat-label>
+
+      <mat-select [(value)]="materiaalForm.materiaal" formControlName="materiaal">
+        <mat-option *ngFor="let mat of materialen$ | async" [value]="mat">
+          {{mat.materiaalNaam}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput aria-label="prijs" placeholder="Prijs" type="number" formControlName="prijs" required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput aria-label="aantalInStock" placeholder="Aantal in Stock" type="number"
+        formControlName="aantalInStock" required />
+    </mat-form-field>
+
+    <mat-error *ngIf="materiaalForm.get('materiaal').errors && materiaalForm.get('aantalInStock').touched">
+      
+        </mat-error>
+   
+    <div>
+            <button type="submit" matInput mat-raised-button
+            [disabled]="materiaalForm.get('prijs').errors || materiaalForm.get('aantalInStock').errors || materiaalForm.get('materiaal').errors">
+            Voeg toe
+        </button>
+        <button mat-button mat-dialog-close>Annuleer</button>
+    </div>
+    
+  </form>
+</mat-dialog-content>

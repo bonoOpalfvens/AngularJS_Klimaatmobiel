@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-title>Creëer Module</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="klimModule" (ngSubmit)="onSubmit()">
+      <mat-form-field class="fill-width" appearance="outline">
+        <input matInput aria-label="moduleNaam" placeholder="Modulenaam" type="text" formControlName="moduleNaam"
+          required />
+        <mat-error *ngIf="klimModule.get('moduleNaam').errors && klimModule.get('moduleNaam').touched">
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="fill-width" appearance="outline">
+        <input matInput aria-label="standaardBudget" placeholder="Standaard budget" type="number"
+          formControlName="standaardBudget" required />
+        <mat-error *ngIf="klimModule.get('standaardBudget').errors && klimModule.get('standaardBudget').touched">
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="fill-width" appearance="outline">
+        <input matInput aria-label="duurInMinuten" placeholder="Duur in minuten" type="number"
+          formControlName="duurInMinuten" required />
+        <mat-error *ngIf="klimModule.get('duurInMinuten').errors && klimModule.get('duurInMinuten').touched">
+        </mat-error>
+
+      </mat-form-field>
+      <mat-form-field class="fill-width" appearance="outline">
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="5" aria-label="beschrijving" placeholder="Beschrijving" type="text"
+          formControlName="beschrijving"></textarea>
+      </mat-form-field>
+      <button type="submit" matInput mat-raised-button
+        [disabled]="!klimModule.get('standaardBudget').errors && klimModule.get('duurInMinuten').errors">
+        Creëer Module
+      </button>
+    </form>
+    <button (click)="openDialog()" matInput mat-raised-button>
+      Voeg materiaal toe
+    </button>
+  </mat-card-content>
+</mat-card>

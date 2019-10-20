@@ -55,7 +55,7 @@ export class KlimModuleCreateComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddMateriaalComponent, {});
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result: ModuleMateriaal) => {
       this.materialen.push(result);
     });
   }

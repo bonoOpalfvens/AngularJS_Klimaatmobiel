@@ -21,7 +21,15 @@ export interface AddMateriaalData {
   styleUrls: ['./klim-module-create.component.css']
 })
 
+
+
 export class KlimModuleCreateComponent implements OnInit {
+  public test_shop: Materiaal[] = [
+    // tslint:disable: max-line-length
+    new Materiaal('icoon1', 'Hout', 5.00, 'Hout is het voornaamste bestanddeel van houtige planten: (vooral) bomen en struiken. Botanisch gezien is hout het door het cambium geproduceerd', 1),
+    new Materiaal('icoon2', 'Papier', 15.00, 'Papier is het voornaamste bestanddeel van houtige planten: (vooral) bomen en struiken. Botanisch gezien is hout het door het cambium geproduceerd', 2),
+    new Materiaal('icoon3', 'Karton', 7.20, 'Karton is het voornaamste bestanddeel van houtige planten: (vooral) bomen en struiken. Botanisch gezien is hout het door het cambium geproduceerd', 3),
+  ];
 
   public klimModule: FormGroup;
   private materialen: ModuleMateriaal[] = [];
@@ -37,10 +45,10 @@ export class KlimModuleCreateComponent implements OnInit {
     this.klimModule = this._fb.group({
       moduleNaam: ['', [Validators.required]],
       standaardBudget: ['', [Validators.required]],
-      duurInMinuten: ['',[Validators.required]],
+      duurInMinuten: ['', [Validators.required]],
       beschrijving: ['']
     });
-    
+
   }
 
   addMateriaal(): FormGroup {
@@ -61,19 +69,19 @@ export class KlimModuleCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    var newModule =  new KlimModule(
+    let newModule =  new KlimModule(
       this.klimModule.value.moduleNaam,
       this.klimModule.value.standaardBudget,
       this.klimModule.value.duurInMinuten,
       this.klimModule.value.beschrijving,
       this.materialen);
 
-      console.log(newModule)
+    console.log(newModule);
 
     this._dataService
       .postModule(newModule)
       .subscribe();
-    
+
     this._router.navigate(['Module/Lijst']);
   }
 }

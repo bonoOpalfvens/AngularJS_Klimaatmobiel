@@ -1,59 +1,50 @@
 import { Eigenschap } from './eigenschap';
 
 export class Materiaal {
-    private _id: number;
+    // tslint:disable: variable-name
+  constructor(
+    private _icoon: string,
+    private _naam: string,
+    private _prijs: number,
+    private _omschrijving: string,
+    private _id: number
+  ) {}
 
-    constructor(
-        private _materiaalNaam: string,
-        private _beschrijving: string,
-        private _standaardPrijs: number,
-        private _isTemplate : boolean,
-        private _eigenschappen: Eigenschap[]
-    ) {}
+  static fromJSON(json: any): Materiaal {
+    return null;
+}
 
-    static fromJSON(json: any): Materiaal {
-        const mat = new Materiaal(
-            json.materiaalNaam,
-            json.beschrijving,
-            json.standaardPrijs,
-            json.isTemplate,
-            json.eigenschappen.map(Eigenschap.fromJSON)
-        );
-        mat._id = json.materiaalId;
-        return mat;
+toJSON(): any {
+    return null;
+  }
+    public get icoon(): string {
+      return this._icoon;
     }
-
-    toJSON(): any {
-        return {
-          materiaalId: this._id,
-          materiaalNaam: this._materiaalNaam,
-          beschrijving: this._beschrijving,
-          standaardPrijs: this._standaardPrijs,
-          isTemplate: this._isTemplate,
-          eigenschappen : this._eigenschappen.map(e => e.toJSON())
-        };
-      }
-
-    get id(): number {
-        return this._id;
+    public set icoon(v: string) {
+      this._icoon = v;
     }
-
-    get standaardPrijs(): number {
-        return this._standaardPrijs;
+    public get naam(): string {
+      return this._naam;
     }
-    get beschrijving(): string {
-        return this._beschrijving;
+    public set naam(v: string) {
+      this._naam = v;
     }
-
-    get materiaalNaam(): string {
-        return this._materiaalNaam;
+    public get prijs(): number {
+      return this._prijs;
     }
-
-    get isTemplate() : boolean {
-        return this._isTemplate;
+    public set prijs(v: number) {
+      this._prijs = v;
     }
-
-    get eigenschappen() : Eigenschap[] {
-        return this._eigenschappen;
+    public get omschrijving(): string {
+      return this._omschrijving;
+    }
+    public set omschrijving(v: string) {
+      this._omschrijving = v;
+    }
+    public get id(): number {
+      return this._id;
+    }
+    public set id(v: number) {
+      this._id = v;
     }
 }

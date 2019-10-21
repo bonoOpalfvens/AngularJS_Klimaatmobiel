@@ -13,8 +13,10 @@ import {
   MatSnackBarModule,
   MatOptionModule,
   MatSelectModule,
-  MatDialog,
-  MatDialogModule
+  MatToolbarModule,
+  MatDialogModule,
+  MatGridListModule,
+  MatTableModule
 } from '@angular/material';
 
 
@@ -37,7 +39,9 @@ import {
     MatOptionModule,
     MatSelectModule,
     MatDialogModule,
-    
+    MatToolbarModule,
+    MatGridListModule,
+    MatTableModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -52,7 +56,10 @@ import {
     MatTooltipModule,
     MatOptionModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatTableModule
   ]
 })
 export class MaterialModule { }

@@ -6,11 +6,13 @@
 /* Variables */
 :root {
     --background-dark: #1A1A1D;
+    --background-light: #f5f5f5;
+    --text-green: #399b7c;
 
     /* GO! huisstijl */
     --go-magenta: rgb(195,0,74);
     --go-donkergrijs: rgb(170,170,170);
-    --go-lichtgrijs: rgb(200,200,200);
+    --go-lichtgrijs: rgb(220,220,220);
     --go-blauw: rgb(0,179,213);
     --go-groen: rgb(169,185,5);
     --go-oranje: rgb(240,136,0);
@@ -21,6 +23,19 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+    background: var(--go-lichtgrijs);
+}
+
 body::-webkit-scrollbar{
     width: 0;
+}
+
+mat-toolbar {
+    z-index: 10;
+    background: var(--background-light);
+    color: var(--text-green) !important;
+    position: fixed;
+    top: 0;
+    left: 1;
 }

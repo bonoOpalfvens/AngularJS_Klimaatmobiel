@@ -20,7 +20,7 @@ export class KlimModule {
             json.standaardBudget,
             json.duurInMinuten,
             json.beschrijving,
-            json.materialen.map(Materiaal.fromJSON)
+            json.moduleMaterialen.map(Materiaal.fromJSON)
         );
         klim._id = json.moduleId;
         klim._creationDate = json.creationDate;

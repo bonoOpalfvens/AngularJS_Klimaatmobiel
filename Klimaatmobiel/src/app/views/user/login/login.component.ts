@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         val => {
           if (val) {
-            this.router.navigate(['/Home']);
+            this.router.navigate(['/Module/CreeerModule']);
             this.snackBar.open(
               `Hallo, ${this.user.value.email}`,
               'Sluit',

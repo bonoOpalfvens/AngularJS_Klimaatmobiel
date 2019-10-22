@@ -52,6 +52,7 @@ export class KlimModuleCreateComponent implements OnInit {
         this.shop$.subscribe(
           list => list.push(result)
         );
+        this.materialen.push(result)
       }
     });
   }
@@ -65,6 +66,7 @@ export class KlimModuleCreateComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.materialen)
     const newModule =  new KlimModule(
       this.klimModule.value.moduleNaam,
       this.klimModule.value.standaardBudget,

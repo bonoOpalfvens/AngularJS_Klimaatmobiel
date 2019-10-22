@@ -24,7 +24,7 @@ export class AddMateriaalComponent implements OnInit {
     this.materiaalForm = this._fb.group({
       naam: ['', [Validators.required]],
       prijs: ['', [Validators.required, Validators.min(0)]],
-      omschrijving: [''],
+      omschrijving: ['', [Validators.required]]
     });
   }
 

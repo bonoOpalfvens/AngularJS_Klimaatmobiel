@@ -19,7 +19,7 @@
     <mat-form-field appearance="outline">
         <mat-label>Omschrijving</mat-label>
         <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5"
-          cdkAutosizeMaxRows="10" aria-label="omschrijving" formControlName="omschrijving"></textarea>
+          cdkAutosizeMaxRows="10" aria-label="omschrijving" formControlName="omschrijving" required></textarea>
       </mat-form-field>
 
     <mat-error *ngIf="materiaalForm.get('omschrijving').errors && materiaalForm.get('omschrijving').touched">

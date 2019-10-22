@@ -1,11 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Materiaal } from 'src/app/models/materiaal';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DataService } from 'src/app/services/data.service';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { AddMateriaalData } from '../klim-module-create/klim-module-create.component';
-import { ModuleMateriaal } from 'src/app/models/module-materiaal';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-add-materiaal',
@@ -13,32 +10,46 @@ import { ModuleMateriaal } from 'src/app/models/module-materiaal';
   styleUrls: ['./add-materiaal.component.css']
 })
 export class AddMateriaalComponent implements OnInit {
-
+  private _file: File;
   public materialen$: Observable<Materiaal[]>;
   public materiaalForm: FormGroup;
 
   constructor(
+    // tslint:disable: variable-name
     private _fb: FormBuilder,
-    private _dataService: DataService,
-    public dialogRef: MatDialogRef<AddMateriaalComponent>) 
-    { }
+    public dialogRef: MatDialogRef<AddMateriaalComponent>
+  ) { }
 
   ngOnInit() {
-    this.materialen$ = this._dataService.materialen$;
     this.materiaalForm = this._fb.group({
-      materiaal: ['', [Validators.required]],
+      naam: ['', [Validators.required]],
       prijs: ['', [Validators.required, Validators.min(0)]],
-      aantalInStock: ['',[Validators.required, Validators.min(0)]]
+      omschrijving: [''],
     });
   }
 
-  onSubmit() {
-    let modmat: ModuleMateriaal = new ModuleMateriaal(
-      this.materiaalForm.value.materiaal, 
-      this.materiaalForm.value.prijs, 
-      this.materiaalForm.value.aantalInStock);
-
-    this.dialogRef.close(modmat);
+  onFileChanged(event: any) {
+    this._file = event.target.files[0];
   }
 
+  async onSubmit() {
+    let base64: any;
+    if (this._file) {
+      base64 = await toBase64(this._file);
+    }
+    const mat: Materiaal = new Materiaal(
+      base64,
+      this.materiaalForm.value.naam,
+      this.materiaalForm.value.omschrijving,
+      this.materiaalForm.value.prijs);
+
+    this.dialogRef.close(mat);
+  }
 }
+
+const toBase64 = file => new Promise((resolve, reject) => {
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = () => resolve(reader.result);
+  reader.onerror = error => reject(error);
+});

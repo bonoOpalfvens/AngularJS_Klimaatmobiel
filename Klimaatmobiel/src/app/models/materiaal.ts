@@ -1,50 +1,52 @@
-import { Eigenschap } from './eigenschap';
-
 export class Materiaal {
-    // tslint:disable: variable-name
+  // tslint:disable: variable-name
+  private _id: number;
+
   constructor(
-    private _icoon: string,
-    private _naam: string,
-    private _prijs: number,
-    private _omschrijving: string,
-    private _id: number
+      private _icoon: string,
+      private _naam: string,
+      private _omschrijving: string,
+      private _prijs: number
   ) {}
 
   static fromJSON(json: any): Materiaal {
-    return null;
+      const obj = new Materiaal(
+          json.icoon,
+          json.materiaalNaam,
+          json.beschrijving,
+          json.prijs
+      );
+      obj._id = json.moduleMateriaalId;
+      return obj;
+  }
+
+  public toJSON(): any {
+    return {
+        materiaalId: this._id,
+        materiaalNaam: this._naam,
+        prijs: this._prijs,
+        beschrijving: this._omschrijving,
+        icoon: this._icoon
+    };
 }
 
-toJSON(): any {
-    return null;
-  }
-    public get icoon(): string {
-      return this._icoon;
-    }
-    public set icoon(v: string) {
-      this._icoon = v;
-    }
-    public get naam(): string {
-      return this._naam;
-    }
-    public set naam(v: string) {
-      this._naam = v;
-    }
-    public get prijs(): number {
-      return this._prijs;
-    }
-    public set prijs(v: number) {
-      this._prijs = v;
-    }
-    public get omschrijving(): string {
-      return this._omschrijving;
-    }
-    public set omschrijving(v: string) {
-      this._omschrijving = v;
-    }
-    public get id(): number {
+  get id(): number {
       return this._id;
-    }
-    public set id(v: number) {
-      this._id = v;
-    }
+  }
+
+  get icoon(): string {
+      return this._icoon;
+  }
+
+  get naam(): string {
+      return this._naam;
+  }
+
+  get omschrijving(): string {
+      return this._omschrijving;
+  }
+
+  get prijs(): number {
+      return this._prijs;
+  }
 }

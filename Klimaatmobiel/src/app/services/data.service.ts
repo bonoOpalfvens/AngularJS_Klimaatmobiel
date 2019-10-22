@@ -14,13 +14,12 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
 
-  postModule(klimModule : KlimModule) : any {
-    console.log( klimModule.toJSON())
+  postModule(klimModule: KlimModule): any {
     return this.http.post(`${environment.apiUrl}/Module/`, klimModule.toJSON(),  { responseType: 'text' })
     .pipe();
   }
 
-  deleteKlimModule(id) {
+  deleteKlimModule(id: number) {
     return this.http
       .delete(`${environment.apiUrl}/Module/${id}`)
       .pipe();
@@ -31,7 +30,7 @@ export class DataService {
       .put(`${environment.apiUrl}/Module/${klimModule.id}`, klimModule.toJSON());
   }
 
-  getKlimModule$(id): Observable<KlimModule> {
+  getKlimModule$(id: number): Observable<KlimModule> {
     return this.http
       .get(`${environment.apiUrl}/Module/${id}`)
       .pipe(map((klim: any): KlimModule => KlimModule.fromJSON(klim)));

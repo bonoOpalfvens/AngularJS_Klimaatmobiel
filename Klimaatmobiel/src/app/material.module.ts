@@ -41,7 +41,8 @@ import {
     MatDialogModule,
     MatToolbarModule,
     MatGridListModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -59,7 +60,8 @@ import {
     MatDialogModule,
     MatToolbarModule,
     MatGridListModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule { }

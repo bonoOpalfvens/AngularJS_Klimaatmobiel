@@ -1,7 +1,7 @@
-import { ModuleMateriaal } from './module-materiaal';
+import { Materiaal } from './materiaal';
 
 export class KlimModule {
-
+    // tslint:disable: variable-name
     private _id: number;
     private _creationDate: Date;
 
@@ -10,7 +10,7 @@ export class KlimModule {
         private _standaardBudget: number,
         private _duurInMinuten: number,
         private _beschrijving: string,
-        private _moduleMaterialen : ModuleMateriaal[]    
+        private _materialen: Materiaal[]
     ) {}
 
 
@@ -20,22 +20,23 @@ export class KlimModule {
             json.standaardBudget,
             json.duurInMinuten,
             json.beschrijving,
-            json.moduleMaterialen.map(ModuleMateriaal.fromJSON)
+            json.materialen.map(Materiaal.fromJSON)
         );
         klim._id = json.moduleId;
         klim._creationDate = json.creationDate;
         return klim;
     }
 
-    toJSON(): any {
+    public toJSON(): any {
         return {
-          moduleNaam: this._moduleNaam,
-          standaardBudget: this._standaardBudget,
-          duurInMinuten: this._duurInMinuten,
-          beschrijving: this._beschrijving,
-          moduleMaterialen: this._moduleMaterialen.map(m => m.toJSON())
+            moduleId: this._id,
+            moduleNaam: this._moduleNaam,
+            standaardBudget: this._standaardBudget,
+            duurInMinuten: this._duurInMinuten,
+            beschrijving: this._beschrijving,
+            materialen: this._materialen.map(o => o.toJSON())
         };
-      }
+    }
 
     get id(): number {
         return this._id;
@@ -52,7 +53,11 @@ export class KlimModule {
         return this._moduleNaam;
     }
 
-    get moduleMaterialen() : ModuleMateriaal[] {
-        return this._moduleMaterialen;
+    public get beschrijving(): string {
+        return this._beschrijving;
+    }
+
+    get materialen(): Materiaal[] {
+        return this._materialen;
     }
 }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { KlimModuleDetailsComponent } from './klim-module-details.component';
+import { KlimModuleEditComponent } from './klim-module-edit.component';
 
-describe('KlimModuleDetailsComponent', () => {
-  let component: KlimModuleDetailsComponent;
-  let fixture: ComponentFixture<KlimModuleDetailsComponent>;
+describe('KlimModuleEditComponent', () => {
+  let component: KlimModuleEditComponent;
+  let fixture: ComponentFixture<KlimModuleEditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ KlimModuleDetailsComponent ]
+      declarations: [ KlimModuleEditComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(KlimModuleDetailsComponent);
+    fixture = TestBed.createComponent(KlimModuleEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

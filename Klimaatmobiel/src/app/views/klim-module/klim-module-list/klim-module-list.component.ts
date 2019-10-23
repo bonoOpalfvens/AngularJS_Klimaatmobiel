@@ -45,7 +45,7 @@ export class KlimModuleListComponent implements OnInit {
       val => {
         if (val) {
           this.snackBar.open('Module succesvol verwijderd.', 'Sluit', {duration: 3000});
-          this.fetchKlimModules$.subscribe(m => m.splice(m.indexOf(mod), 1));
+          this.fetchKlimModules$ = this._dataService.klimModules$;
         }
       },
       (err: HttpErrorResponse) => {

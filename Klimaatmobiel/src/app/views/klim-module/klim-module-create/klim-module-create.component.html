@@ -11,11 +11,11 @@
         <mat-card-content>
           <form [formGroup]="klimModule" (ngSubmit)="onSubmit()">
             <mat-form-field appearance="outline">
-                <mat-label>Titel</mat-label>
-                <input matInput aria-label="moduleNaam" formControlName="moduleNaam" required />
-                <mat-error *ngIf="klimModule.get('moduleNaam').errors && klimModule.get('moduleNaam').touched">
-                </mat-error>
-              </mat-form-field>
+              <mat-label>Titel</mat-label>
+              <input matInput aria-label="moduleNaam" formControlName="moduleNaam" required />
+              <mat-error *ngIf="klimModule.get('moduleNaam').errors && klimModule.get('moduleNaam').touched">
+              </mat-error>
+            </mat-form-field>
             <mat-form-field appearance="outline">
               <mat-label>Budget</mat-label>
               <input matInput aria-label="standaardBudget" type="number" formControlName="standaardBudget" required />
@@ -24,8 +24,7 @@
             </mat-form-field>
             <mat-form-field appearance="outline">
               <mat-label>Duurtijd (minuten)</mat-label>
-              <input matInput aria-label="duurInMinuten" type="number" formControlName="duurInMinuten"
-                required />
+              <input matInput aria-label="duurInMinuten" type="number" formControlName="duurInMinuten" required />
               <mat-error *ngIf="klimModule.get('duurInMinuten').errors && klimModule.get('duurInMinuten').touched">
               </mat-error>
             </mat-form-field>
@@ -36,12 +35,10 @@
             </mat-form-field>
             <button type="submit" matInput mat-raised-button color="primary"
               [disabled]="klimModule.get('standaardBudget').errors ||  klimModule.get('duurInMinuten').errors || klimModule.get('moduleNaam').errors">
-              Creëer Module
+              <mat-icon>save</mat-icon> Opslaan
             </button>
-            <button [routerLink]="['/Module/Lijst']" matInput mat-raised-button color="warn">
-              <i class="material-icons">
-                delete_forever
-              </i>
+            <button [routerLink]="['/Module/Lijst']" type="button" matInput mat-raised-button style="float: right;">
+              <mat-icon>restore</mat-icon>
             </button>
           </form>
         </mat-card-content>
@@ -51,7 +48,8 @@
       <mat-card>
         <mat-card-title>
           Winkel
-          <button (click)="addMateriaal()" color="primary" style="float: right; margin-bottom: 10px;" mat-raised-button aria-label="Example icon-button with a heart icon">
+          <button (click)="addMateriaal()" color="primary" style="float: right; margin-bottom: 10px;" mat-raised-button
+            aria-label="Example icon-button with a heart icon">
             <mat-icon>add_shopping_cart</mat-icon> Voeg materiaal toe
           </button>
         </mat-card-title>

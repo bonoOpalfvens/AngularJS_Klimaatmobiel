@@ -1,7 +1,6 @@
 import { Materiaal } from './materiaal';
 
 export class KlimModule {
-    // tslint:disable: variable-name
     private _id: number;
     private _creationDate: Date;
 
@@ -44,23 +43,52 @@ export class KlimModule {
     get standaardBudget(): number {
         return this._standaardBudget;
     }
+
+    set standaardBudget(val: number) {
+        this._standaardBudget = val;
+    }
+
     get duurInMinuten(): number {
         return this._duurInMinuten;
+    }
+
+    set duurInMinuten(val: number) {
+        this._duurInMinuten = val;
     }
 
     get moduleNaam(): string {
         return this._moduleNaam;
     }
 
+    set moduleNaam(val: string) {
+        this._moduleNaam = val;
+    }
+
     get beschrijving(): string {
         return this._beschrijving;
+    }
+
+    set beschrijving(val: string) {
+        this._beschrijving = val;
     }
 
     get materialen(): Materiaal[] {
         return this._materialen;
     }
 
+    set materialen(val: Materiaal[]) {
+        this._materialen = val;
+    }
+
     get creationDate(): Date {
         return this._creationDate;
     }
+
+    
+
+    
+
+    
+
+    
 }

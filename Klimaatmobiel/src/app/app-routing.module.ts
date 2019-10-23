@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'User/Register', component: RegisterComponent },
 
   { path: 'Module/CreeerModule', component: KlimModuleCreateComponent, canActivate: [AuthGuard]},
+  { path: 'Module/BewerkModule/{id}', component: KlimModuleCreateComponent, canActivate: [AuthGuard]},
   { path: 'Module/Lijst', component: KlimModuleListComponent, canActivate: [AuthGuard]},
 
   { path: '', redirectTo: 'User/Login', pathMatch: 'full' },

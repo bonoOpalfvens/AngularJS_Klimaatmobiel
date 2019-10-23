@@ -13,12 +13,12 @@ export class AddMateriaalComponent implements OnInit {
   @Input() materiaal: Materiaal;
   private base64: any;
 
+  // tslint:disable-next-line: variable-name
   private _file: File;
   public materialen$: Observable<Materiaal[]>;
   public materiaalForm: FormGroup;
 
   constructor(
-    // tslint:disable: variable-name
     private _fb: FormBuilder,
     public dialogRef: MatDialogRef<AddMateriaalComponent>
   ) { }

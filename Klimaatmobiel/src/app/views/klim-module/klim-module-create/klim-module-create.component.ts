@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { DataService } from 'src/app/services/data.service';
 import { KlimModule } from 'src/app/models/klim-module';
 import { Materiaal } from 'src/app/models/materiaal';
 import { AddMateriaalComponent } from '../add-materiaal/add-materiaal.component';
 import { Observable, of } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-klim-module-create',
@@ -21,11 +22,11 @@ export class KlimModuleCreateComponent implements OnInit {
   private materialen: Materiaal[] = [];
 
   constructor(
-    // tslint:disable: variable-name
     private _fb: FormBuilder,
     private _dataService: DataService,
     private _router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -77,8 +78,16 @@ export class KlimModuleCreateComponent implements OnInit {
 
     this._dataService
       .postModule(newModule)
-      .subscribe();
-
-    this._router.navigate(['Module/Lijst']);
+      .subscribe(
+        val => {
+          if (val) {
+            this._router.navigate(['Module/Lijst']);
+            this.snackBar.open('Module aangemaakt!', 'Sluit', {duration: 3000});
+          }
+        },
+        (err: HttpErrorResponse) => {
+          this.snackBar.open('Er was een probleem bij het opslaan van de module.', 'Sluit', {duration: 15000});
+        }
+      );
   }
 }

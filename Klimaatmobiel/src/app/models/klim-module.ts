@@ -19,7 +19,7 @@ export class KlimModule {
             json.standaardBudget,
             json.duurInMinuten,
             json.beschrijving,
-            json.moduleMaterialen.map(Materiaal.fromJSON)
+            (json.moduleMaterialen ? json.moduleMaterialen.map(Materiaal.fromJSON) : [])
         );
         klim._id = json.moduleId;
         klim._creationDate = json.creationDate;
@@ -52,11 +52,15 @@ export class KlimModule {
         return this._moduleNaam;
     }
 
-    public get beschrijving(): string {
+    get beschrijving(): string {
         return this._beschrijving;
     }
 
     get materialen(): Materiaal[] {
         return this._materialen;
+    }
+
+    get creationDate(): Date {
+        return this._creationDate;
     }
 }

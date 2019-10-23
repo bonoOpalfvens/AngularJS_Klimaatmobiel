@@ -9,6 +9,7 @@ import { KlimModuleListComponent } from './klim-module-list/klim-module-list.com
 import { KlimModuleViewComponent } from './klim-module-view/klim-module-view.component';
 
 import { AddMateriaalComponent } from './add-materiaal/add-materiaal.component';
+import { ModuleFilterPipe } from 'src/app/pipes/module-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AddMateriaalComponent } from './add-materiaal/add-materiaal.component';
     KlimModuleDetailsComponent,
     KlimModuleListComponent,
     KlimModuleViewComponent,
-    AddMateriaalComponent],
+    AddMateriaalComponent,
+    ModuleFilterPipe],
 
   imports: [
     CommonModule,

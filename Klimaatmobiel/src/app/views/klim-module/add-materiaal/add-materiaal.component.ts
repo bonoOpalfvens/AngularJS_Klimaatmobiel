@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Materiaal } from 'src/app/models/materiaal';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -10,6 +10,9 @@ import { MatDialogRef } from '@angular/material';
   styleUrls: ['./add-materiaal.component.css']
 })
 export class AddMateriaalComponent implements OnInit {
+  @Input() materiaal: Materiaal;
+  private base64: any;
+
   private _file: File;
   public materialen$: Observable<Materiaal[]>;
   public materiaalForm: FormGroup;
@@ -21,11 +24,20 @@ export class AddMateriaalComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.materiaalForm = this._fb.group({
-      naam: ['', [Validators.required]],
-      prijs: ['', [Validators.required, Validators.min(0)]],
-      omschrijving: ['', [Validators.required]]
-    });
+    if (this.materiaal) {
+      this.materiaalForm = this._fb.group({
+        naam: [this.materiaal.naam, [Validators.required]],
+        prijs: [this.materiaal.prijs, [Validators.required, Validators.min(0)]],
+        omschrijving: [this.materiaal.omschrijving, [Validators.required]]
+      });
+      this.base64 = this.materiaal.icoon;
+    } else {
+      this.materiaalForm = this._fb.group({
+        naam: ['', [Validators.required]],
+        prijs: ['', [Validators.required, Validators.min(0)]],
+        omschrijving: ['', [Validators.required]]
+      });
+    }
   }
 
   onFileChanged(event: any) {
@@ -33,12 +45,11 @@ export class AddMateriaalComponent implements OnInit {
   }
 
   async onSubmit() {
-    let base64: any;
     if (this._file) {
-      base64 = await toBase64(this._file);
+      this.base64 = await toBase64(this._file);
     }
     const mat: Materiaal = new Materiaal(
-      base64,
+      this.base64,
       this.materiaalForm.value.naam,
       this.materiaalForm.value.omschrijving,
       this.materiaalForm.value.prijs);

@@ -26,17 +26,11 @@ export class KlimModuleCreateComponent implements OnInit {
     private _dataService: DataService,
     private _router: Router,
     public dialog: MatDialog
-  ) {
-
-    this.shop$ = of([
-      // tslint:disable: max-line-length
-      new Materiaal('icoon1', 'Hout', 'Hout is het voornaamste bestanddeel van houtige planten: (vooral) bomen en struiken. Botanisch gezien is hout het door het cambium geproduceerd', 5.00),
-      new Materiaal('icoon2', 'Papier', 'Papier is het voornaamste bestanddeel van houtige planten: (vooral) bomen en struiken. Botanisch gezien is hout het door het cambium geproduceerd', 15.00),
-      new Materiaal('icoon3', 'Karton', 'Karton is het voornaamste bestanddeel van houtige planten: (vooral) bomen en struiken. Botanisch gezien is hout het door het cambium geproduceerd', 7.20),
-    ]);
-  }
+  ) {}
 
   ngOnInit() {
+    this.shop$ = of([]);
+
     this.klimModule = this._fb.group({
       moduleNaam: ['', [Validators.required]],
       standaardBudget: ['', [Validators.required]],
@@ -52,7 +46,7 @@ export class KlimModuleCreateComponent implements OnInit {
         this.shop$.subscribe(
           list => list.push(result)
         );
-        this.materialen.push(result)
+        this.materialen.push(result);
       }
     });
   }
@@ -62,19 +56,24 @@ export class KlimModuleCreateComponent implements OnInit {
   }
 
   editMateriaal(materiaal: Materiaal) {
-    this.shop$.subscribe((lijst) => lijst.splice(lijst.indexOf(materiaal), 1));
-  }
+    const dialogRef = this.dialog.open(AddMateriaalComponent, {});
+    dialogRef.componentInstance.materiaal = materiaal;
+    dialogRef.afterClosed().subscribe((result: Materiaal) => {
+      if (result) {
+        this.shop$.subscribe(list => {
+          list[list.indexOf(materiaal)] = result;
+        });
+        this.materialen[this.materialen.indexOf(materiaal)] = result;
+      }
+    });  }
 
   onSubmit() {
-    console.log(this.materialen)
     const newModule =  new KlimModule(
       this.klimModule.value.moduleNaam,
       this.klimModule.value.standaardBudget,
       this.klimModule.value.duurInMinuten,
       this.klimModule.value.beschrijving,
       this.materialen);
-
-    console.log(newModule);
 
     this._dataService
       .postModule(newModule)

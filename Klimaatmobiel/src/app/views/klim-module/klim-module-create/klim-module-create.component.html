@@ -41,7 +41,8 @@
               [disabled]="klimModule.get('standaardBudget').errors ||  klimModule.get('duurInMinuten').errors || klimModule.get('moduleNaam').errors">
               Creëer Module
             </button>
-            <button [routerLink]="['Module']" matInput mat-raised-button color="warn"><i class="material-icons">
+            <button [routerLink]="['/Module/Lijst']" matInput mat-raised-button color="warn">
+              <i class="material-icons">
                 delete_forever
               </i>
             </button>
@@ -71,7 +72,7 @@
               </td>
               <td>{{materiaal.naam}}</td>
               <td matTooltip="{{materiaal.omschrijving}}">
-                {{(materiaal.omschrijving.length>6)? (materiaal.omschrijving | slice:0:15)+'...':(materiaal.omschrijving)}}
+                {{(materiaal.omschrijving.length>40)? (materiaal.omschrijving | slice:0:40)+'...':(materiaal.omschrijving)}}
               </td>
               <td style="text-align: right">{{materiaal.prijs | number:'.2'}}</td>
               <td style="text-align: right;">

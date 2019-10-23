@@ -13,7 +13,6 @@ export class KlimModule {
         private _materialen: Materiaal[]
     ) {}
 
-
     static fromJSON(json: any): KlimModule {
         const klim = new KlimModule(
             json.moduleNaam,

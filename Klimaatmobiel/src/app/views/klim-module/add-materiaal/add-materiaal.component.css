@@ -1,0 +1,10 @@
+mat-form-field {
+    width: 100%;
+}
+mat-icon {
+    margin-right: 10px;
+}
+
+button[color="primary"] {
+    background-color: var(--text-green);
+}

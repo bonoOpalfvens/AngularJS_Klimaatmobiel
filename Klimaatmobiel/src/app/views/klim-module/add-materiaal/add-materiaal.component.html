@@ -1,0 +1,37 @@
+<mat-dialog-content>
+  <form [formGroup]="materiaalForm" (ngSubmit)="onSubmit()">
+    <input type="file" (change)="onFileChanged($event)" required />
+
+    <mat-form-field>
+      <mat-label>
+        <mat-icon>account_balance</mat-icon> Naam
+      </mat-label>
+      <input matInput aria-label="naam" formControlName="naam" required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>
+        <mat-icon>attach_money</mat-icon> Prijs
+      </mat-label>
+      <input matInput aria-label="prijs" type="number" formControlName="prijs" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Omschrijving</mat-label>
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5"
+          cdkAutosizeMaxRows="10" aria-label="omschrijving" formControlName="omschrijving" required></textarea>
+      </mat-form-field>
+
+    <mat-error *ngIf="materiaalForm.get('omschrijving').errors && materiaalForm.get('omschrijving').touched">
+
+    </mat-error>
+
+    <div>
+      <button type="submit" matInput mat-raised-button color="primary"
+        [disabled]="materiaalForm.errors"><mat-icon>save</mat-icon>
+        Opslaan
+      </button>
+      <button type="button" mat-raised-button mat-dialog-close color="warn" style="float: right"><mat-icon>cancel</mat-icon>Annuleer</button>
+    </div>
+  </form>
+</mat-dialog-content>

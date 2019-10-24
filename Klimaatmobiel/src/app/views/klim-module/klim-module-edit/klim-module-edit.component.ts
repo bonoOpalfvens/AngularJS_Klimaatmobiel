@@ -34,6 +34,7 @@ export class KlimModuleEditComponent implements OnInit {
     this.route.data.subscribe(item =>
       this.module = item.module
     );
+    this.materialen = this.module.materialen;
     this.shop$ = of(this.module.materialen);
 
     this.klimModule = this._fb.group({
@@ -48,9 +49,6 @@ export class KlimModuleEditComponent implements OnInit {
     const dialogRef = this.dialog.open(AddMateriaalComponent, {});
     dialogRef.afterClosed().subscribe((result: Materiaal) => {
       if (result) {
-        this.shop$.subscribe(
-          list => list.push(result)
-        );
         this.materialen.push(result);
       }
     });
@@ -79,9 +77,6 @@ export class KlimModuleEditComponent implements OnInit {
     dialogRef.componentInstance.materiaal = materiaal;
     dialogRef.afterClosed().subscribe((result: Materiaal) => {
       if (result) {
-        this.shop$.subscribe(list => {
-          list[list.indexOf(materiaal)] = result;
-        });
         this.materialen[this.materialen.indexOf(materiaal)] = result;
       }
     });

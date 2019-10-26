@@ -1,0 +1,24 @@
+<mat-dialog-content>
+    <form [formGroup]="moduleInstanceForm" (ngSubmit)="onSubmit()">
+  
+      <mat-form-field>
+        <mat-label>
+          <mat-icon>account_balance</mat-icon> Aantal teams
+        </mat-label>
+        <input matInput aria-label="aantalTeams" formControlName="aantalTeams" required />
+      </mat-form-field>
+  
+      <mat-error *ngIf="moduleInstanceForm.get('aantalTeams').errors">
+  
+      </mat-error>
+  
+      <div>
+        <button type="submit" matInput mat-raised-button color="primary"
+          [disabled]="moduleInstanceForm.get('aantalTeams').errors"><mat-icon>save</mat-icon>
+          Opslaan
+        </button>
+        <button type="button" mat-raised-button mat-dialog-close color="warn" style="float: right"><mat-icon>cancel</mat-icon>Annuleer</button>
+      </div>
+    </form>
+  </mat-dialog-content>
+  

@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { School } from '../models/school';
 import { KlimModule } from '../models/klim-module';
 import { Materiaal } from '../models/materiaal';
+import { ModuleInstance } from '../models/module-instance';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,13 @@ export class DataService {
 
   postModule(klimModule: KlimModule): any {
     return this.http.post(`${environment.apiUrl}/Module/`, klimModule.toJSON(),  { responseType: 'text' })
-    .pipe();
+      .pipe();
+  }
+
+  postModuleInstance(moduleInstance: ModuleInstance): any {
+    console.log("post")
+    return this.http.post(`${environment.apiUrl}/ModuleInstance/`, moduleInstance.toJSON(),  { responseType: 'text' })
+      .pipe();
   }
 
   deleteKlimModule(id: number) {

@@ -7,21 +7,23 @@ import { ModuleInstanceStatus } from './module-instance-status';
 export class ModuleInstance {
     private _id: number;
     private _moduleInstanceStatus: ModuleInstanceStatus;
+    private _teams: Team[];
+    private _bestellingen: Bestelling[];
 
     constructor(
         private _klimModule: KlimModule,
-        private _teams: Team[],
-        private _bestellingen: Bestelling[]
+        private _aantalTeams: number
     ) {}
 
     static fromJSON(json: any): ModuleInstance {
         const inst = new ModuleInstance(
             KlimModule.fromJSON(json.module),
-            json.teams.map(t => Team.fromJSON(t)),
-            json.bestellingen.map(b => Bestelling.fromJSON(b)),
+            json.aantalTeams
         );
         inst._id = json.moduleInstanceId;
         inst._moduleInstanceStatus = json.moduleInstanceStatus;
+        inst._teams = json.teams.map(Team.fromJSON);
+        inst._bestellingen = json.bestellingen.map(Bestelling.fromJSON);
         return inst;
     }
 
@@ -29,7 +31,7 @@ export class ModuleInstance {
         return {
             moduleInstanceId: this._id,
             moduleId: this._klimModule.id,
-            aantalTeams: this._teams.length
+            aantalTeams: this._aantalTeams
         };
     }
 

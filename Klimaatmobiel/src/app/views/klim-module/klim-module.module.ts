@@ -11,6 +11,8 @@ import { AddMateriaalComponent } from './add-materiaal/add-materiaal.component';
 import { ModuleFilterPipe } from 'src/app/pipes/module-filter.pipe';
 import { KlimModuleEditComponent } from './klim-module-edit/klim-module-edit.component';
 import { ModuleInstanceCreateDialogComponent } from './module-instance-create-dialog/module-instance-create-dialog.component';
+import { ViewsModule } from '../views.module';
+import { ModuleInstanceModule } from '../module-instance/module-instance.module';
 
 
 @NgModule({
@@ -28,8 +30,8 @@ import { ModuleInstanceCreateDialogComponent } from './module-instance-create-di
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
+    ModuleInstanceModule,
     RouterModule
-    
   ],
   entryComponents: [AddMateriaalComponent, ModuleInstanceCreateDialogComponent],
   exports: [

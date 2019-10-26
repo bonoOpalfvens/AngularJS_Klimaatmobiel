@@ -38,6 +38,13 @@ export class ModuleInstance {
     get id(): number {
         return this._id;
     }
+    get aantalTeams(): number {
+        return this._aantalTeams;
+    }
+
+    set aantalTeams(val: number) {
+        this._aantalTeams = val;
+    }
 
     get bestellingen(): Bestelling[] {
         return this._bestellingen;
@@ -61,5 +68,17 @@ export class ModuleInstance {
 
     set moduleInstanceStatus(val: ModuleInstanceStatus) {
         this._moduleInstanceStatus = val;
+    }
+
+    get statusString(): string {
+        return ModuleInstanceStatus[this._moduleInstanceStatus]
+    }
+
+    get klimModule(): KlimModule {
+        return this._klimModule;
+    }
+
+    set klimModule(val: KlimModule) {
+        this._klimModule = val
     }
 }

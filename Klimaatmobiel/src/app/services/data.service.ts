@@ -57,6 +57,13 @@ export class DataService {
     );
   }
 
+  get moduleInstances$(): Observable<ModuleInstance[]> {
+    return this.http.get(`${environment.apiUrl}/ModuleInstance/get_all`).pipe(
+      map((list: any[]): ModuleInstance[] => list.map(ModuleInstance.fromJSON)),
+      share()
+    );
+  }
+
   get scholen$(): Observable<School[]> {
     return this.http.get(`${environment.apiUrl}/School/get_all`).pipe(
       map((list: any[]): School[] => list.map(School.fromJSON)),

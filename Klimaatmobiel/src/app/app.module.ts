@@ -15,7 +15,6 @@ import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
     BrowserModule,
     HttpClientModule,
     MaterialModule,
-
     ViewsModule,
     AppRoutingModule
   ],

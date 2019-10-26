@@ -1,1 +1,14 @@
-<p>module-instance-view works!</p>
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Van Module: {{moduleInstance.klimModule.moduleNaam}}</mat-card-title>
+      <mat-card-subtitle>
+            <b>Status: </b>{{moduleInstance.statusString}} <br>
+            <b>StartDatum: </b>{{moduleInstance.statusString}} <br>
+            <b>EindDatum: </b>{{moduleInstance.statusString}} <br>
+            <b>Aantal teams: </b>{{moduleInstance.aantalTeams}} <br>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions style="text-align: right;">     
+          <button mat-flat-button color="primary" click="onDashboard()" [routerLink]="['/ModuleInstance/Dashboard', moduleInstance.id]">Naar dashboard</button>
+    </mat-card-actions>
+  </mat-card>

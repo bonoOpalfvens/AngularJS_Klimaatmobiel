@@ -10,6 +10,6 @@
   <mat-card-actions style="text-align: right;">     
         <button mat-flat-button color="warn" (click)="this.deleteFunc(klimModule)"><mat-icon>delete_forever</mat-icon></button>
         <button mat-stroked-button [routerLink]="['/Module/Bewerk', klimModule.id]" ><mat-icon>build</mat-icon></button>
-        <button mat-flat-button color="primary" (click)="startModule(klimModule)"><mat-icon>play_circle_outlined</mat-icon></button>
+        <button mat-flat-button color="primary" [routerLink]="['/Module/Lijst']" (click)="startModule(klimModule)"><mat-icon>play_circle_outlined</mat-icon></button>
   </mat-card-actions>
 </mat-card>

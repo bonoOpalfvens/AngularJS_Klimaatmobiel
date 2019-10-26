@@ -4,6 +4,7 @@ import { NavigationModule } from './navigation/navigation.module';
 import { UserModule } from './user/user.module';
 import { MaterialModule } from '../material.module';
 import { KlimModuleModule } from './klim-module/klim-module.module';
+import { ModuleInstanceModule } from './module-instance/module-instance.module';
 
 
 
@@ -14,12 +15,14 @@ import { KlimModuleModule } from './klim-module/klim-module.module';
     NavigationModule,
     MaterialModule,
     UserModule,
-    KlimModuleModule
+    KlimModuleModule,
+    ModuleInstanceModule
   ],
   exports: [
     NavigationModule,
     UserModule,
-    KlimModuleModule
+    KlimModuleModule,
+    ModuleInstanceModule
   ]
 })
 export class ViewsModule { }

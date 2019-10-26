@@ -7,6 +7,7 @@ import { KlimModuleListComponent } from './views/klim-module/klim-module-list/kl
 import { AuthGuard } from './guards/auth.guard';
 import { KlimModuleEditComponent } from './views/klim-module/klim-module-edit/klim-module-edit.component';
 import { ModuleGuard } from './guards/module.guard';
+import { InstanceDashboardComponent } from './views/module-instance/instance-dashboard/instance-dashboard.component';
 
 const routes: Routes = [
   { path: 'User/Login', component: LoginComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'Module/CreeerModule', component: KlimModuleCreateComponent, canActivate: [AuthGuard]},
   { path: 'Module/Bewerk/:id', component: KlimModuleEditComponent, canActivate: [AuthGuard], resolve: {module: ModuleGuard}},
   { path: 'Module/Lijst', component: KlimModuleListComponent, canActivate: [AuthGuard]},
+  { path: 'ModuleInstance/Dashboard/:id', component: InstanceDashboardComponent, canActivate: [AuthGuard]},
 
   { path: '', redirectTo: 'User/Login', pathMatch: 'full' },
   { path: '**', redirectTo: 'NotFound', pathMatch: 'full' }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Bestelling } from 'src/app/models/bestelling';
 
 @Component({
   selector: 'app-bestelling-view',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bestelling-view.component.css']
 })
 export class BestellingViewComponent implements OnInit {
+
+  @Input() public bestelling: Bestelling
+
+  
 
   constructor() { }
 

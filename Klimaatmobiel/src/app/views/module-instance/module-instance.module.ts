@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { InstanceDashboardComponent } from './instance-dashboard/instance-dashboard.component';
 import { TeamListComponent } from './team-list/team-list.component';
 import { TeamViewComponent } from './team-view/team-view.component';
+import { OrderLineViewComponent } from './order-line-view/order-line-view.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TeamViewComponent } from './team-view/team-view.component';
     ModuleInstanceListComponent, 
     InstanceDashboardComponent,
     TeamListComponent,
-    TeamViewComponent],
+    TeamViewComponent,
+    OrderLineViewComponent],
 
   imports: [
     CommonModule,

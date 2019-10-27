@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Bestelling } from 'src/app/models/bestelling';
 
 @Component({
   selector: 'app-bestelling-list',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bestelling-list.component.css']
 })
 export class BestellingListComponent implements OnInit {
+
+  @Input() public bestellingen: Bestelling[]
 
   constructor() { }
 

@@ -2,8 +2,9 @@
     <mat-card-header>
       <mat-card-title>{{team.teamNaam}}</mat-card-title>
       <mat-card-subtitle>
-            <b>Budget: </b>{{team.budget}} <br>
+            <b>Budget: </b>€{{team.budget}} <br>
             <b>Score: </b>{{team.score}} <br>
       </mat-card-subtitle>
     </mat-card-header>
-  </mat-card>
+    <app-bestelling-list [bestellingen]="team.bestellingen"></app-bestelling-list>
+</mat-card>

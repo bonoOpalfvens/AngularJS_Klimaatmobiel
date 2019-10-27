@@ -1,1 +1,11 @@
-<p>bestelling-list works!</p>
+<mat-card style="display: inline-block;width: 45%; margin-left: 15px;">
+        
+    <mat-card-subtitle>
+        Bestellingen van team
+    </mat-card-subtitle>
+
+    <mat-card-content>
+        <app-bestelling-view *ngFor="let bestelling of bestellingen" [bestelling]="bestelling">
+        </app-bestelling-view>
+    </mat-card-content>
+</mat-card>

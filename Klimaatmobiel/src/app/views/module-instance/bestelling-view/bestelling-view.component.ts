@@ -10,8 +10,6 @@ export class BestellingViewComponent implements OnInit {
 
   @Input() public bestelling: Bestelling
 
-  
-
   constructor() { }
 
   ngOnInit() {

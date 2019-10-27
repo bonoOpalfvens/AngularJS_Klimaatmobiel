@@ -1,3 +1,12 @@
 <div>
-    <app-team-list [teams]="instance.teams"></app-team-list>
+    <mat-card>
+            <button (click)='startModule()' [disabled]="!startable" mat-button color="primary">
+                    <i class="material-icons">save</i>Start Module</button>
+            <button (click)='completeModule()' [disabled]="!endable" mat-button color="hint">
+                    <i class="material-icons">save</i>Rond Module Af</button>
+            <button (click)='cancelModule()' [disabled]="!endable" mat-button color="warn">
+                    <i class="material-icons">save</i>Annuleer Module</button>
+            <p>{{timeString}}</p>
+    </mat-card>     
+    <app-team-list [teams]="moduleInstance.teams"></app-team-list>
 </div>

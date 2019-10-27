@@ -13,6 +13,7 @@ export class TeamViewComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.team)
   }
 
 }

@@ -1,5 +1,4 @@
-<div class="container">
-    <mat-card style="display: inline-block;width: 45%; margin-left: 15px;">
+<mat-card style="display: inline-block;width: 45%; margin-left: 15px; ">
         <mat-card-title>
             Module Instanties
         </mat-card-title>
@@ -7,5 +6,4 @@
             <app-module-instance-view *ngFor="let instance of fetchModuleInstances$ | async" [moduleInstance]="instance">
             </app-module-instance-view>
         </mat-card-content>
-    </mat-card>
-</div>
+</mat-card>

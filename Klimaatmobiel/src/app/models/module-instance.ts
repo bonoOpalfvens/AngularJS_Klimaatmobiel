@@ -9,6 +9,8 @@ export class ModuleInstance {
     private _moduleInstanceStatus: ModuleInstanceStatus;
     private _teams: Team[];
     private _bestellingen: Bestelling[];
+    private _startDatum: Date;
+    private _eindDatum: Date;
 
     constructor(
         private _klimModule: KlimModule,
@@ -24,6 +26,8 @@ export class ModuleInstance {
         inst._moduleInstanceStatus = json.moduleInstanceStatus;
         inst._teams = json.teams.map(Team.fromJSON);
         inst._bestellingen = json.bestellingen.map(Bestelling.fromJSON);
+        inst._startDatum = json.startDatum,
+        inst._eindDatum = json.eindDatum
         return inst;
     }
 
@@ -38,8 +42,17 @@ export class ModuleInstance {
     get id(): number {
         return this._id;
     }
+
     get aantalTeams(): number {
         return this._aantalTeams;
+    }
+
+    get startDatum(): Date {
+        return this._startDatum;
+    }
+
+    get eindDatum(): Date {
+        return this._eindDatum;
     }
 
     set aantalTeams(val: number) {

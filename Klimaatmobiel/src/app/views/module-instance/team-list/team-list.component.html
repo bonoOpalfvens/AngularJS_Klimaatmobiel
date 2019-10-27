@@ -1,9 +1,11 @@
 <mat-card style="display: inline-block;width: 45%; margin-left: 15px;">
+        
         <mat-card-title>
             Teams
         </mat-card-title>
+
         <mat-card-content>
-            <app-team-view *ngFor="let team of teams | async" [team]="team">
+            <app-team-view *ngFor="let team of teams" [team]="team">
             </app-team-view>
         </mat-card-content>
     </mat-card>

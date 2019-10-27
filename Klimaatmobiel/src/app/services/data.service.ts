@@ -42,6 +42,12 @@ export class DataService {
       .get(`${environment.apiUrl}/Module/${id}`)
       .pipe(map((klim: any): KlimModule => KlimModule.fromJSON(klim)));
   }
+  
+  getModuleInstance$(id: number): Observable<ModuleInstance> {
+    return this.http
+      .get(`${environment.apiUrl}/ModuleInstance/${id}`)
+      .pipe(map((instance: any): ModuleInstance => ModuleInstance.fromJSON(instance)));
+  }
 
   get materialen$(): Observable<Materiaal[]> {
     return this.http.get(`${environment.apiUrl}/Materiaal/get_all`).pipe(

@@ -7,6 +7,7 @@ export class Team {
       private _teamNaam: string,
       private _score: number,
       private _budget: number,
+      private _notities: string,
       private _bestellingen: Bestelling[]
   ) {}
 
@@ -15,6 +16,7 @@ export class Team {
             json.teamNaam,
             json.score,
             json.budget,
+            json.notities,
             json.bestellingen.map(Bestelling.fromJSON)
         );
         team._id = json.teamId;
@@ -25,12 +27,21 @@ export class Team {
         return {
             teamId: this._id,
             score: this._score,
-            budget: this._budget
+            budget: this._budget,
+            notities: this._notities
         };
     }
 
     get id(): number {
         return this._id;
+    }
+
+    get notities(): string {
+        return this._notities;
+    }
+
+    set notities(val: string){
+        this._notities = val;
     }
 
     get teamNaam(): string {

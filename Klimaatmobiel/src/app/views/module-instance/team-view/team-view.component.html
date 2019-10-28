@@ -4,9 +4,10 @@
       <mat-card-subtitle>
             <b>Budget: </b>€{{team.budget}} <br>
             <b>Score: </b>{{team.score}} <br>
+            <span matTooltip="{{team.notities}}"><b>Notities: </b>{{(team.notities && team.notities.length>60)? (team.notities | slice:0:60)+'...':(team.notities)}}</span>
       </mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions>
-      <a mat-button color="hint" style="float: right;" routerLink="."><mat-icon>note_add</mat-icon></a>
+      <a mat-button (click)="addNotities()" color="hint" style="float: right;" routerLink="."><mat-icon>note_add</mat-icon></a>
     </mat-card-actions>
 </mat-card>

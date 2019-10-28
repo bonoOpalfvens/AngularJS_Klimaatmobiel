@@ -11,6 +11,7 @@ import { InstanceDashboardComponent } from './instance-dashboard/instance-dashbo
 import { TeamListComponent } from './team-list/team-list.component';
 import { TeamViewComponent } from './team-view/team-view.component';
 import { OrderLineViewComponent } from './order-line-view/order-line-view.component';
+import { TeamNotitiesDialogComponent } from './team-notities-dialog/team-notities-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { OrderLineViewComponent } from './order-line-view/order-line-view.compon
     InstanceDashboardComponent,
     TeamListComponent,
     TeamViewComponent,
-    OrderLineViewComponent],
+    OrderLineViewComponent,
+    TeamNotitiesDialogComponent],
 
   imports: [
     CommonModule,
@@ -29,7 +31,7 @@ import { OrderLineViewComponent } from './order-line-view/order-line-view.compon
     ReactiveFormsModule,
     RouterModule
   ],
-  
+  entryComponents: [TeamNotitiesDialogComponent],
   exports: [
     ModuleInstanceViewComponent, 
     BestellingViewComponent, 
@@ -37,7 +39,8 @@ import { OrderLineViewComponent } from './order-line-view/order-line-view.compon
     ModuleInstanceListComponent,
     InstanceDashboardComponent,
     TeamListComponent,
-    TeamViewComponent
+    TeamViewComponent,
+    TeamNotitiesDialogComponent
   ]
 })
 export class ModuleInstanceModule { }

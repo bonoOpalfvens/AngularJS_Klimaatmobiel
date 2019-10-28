@@ -22,12 +22,11 @@ export class KlimModuleViewComponent implements OnInit {
   ) { }
   ngOnInit() {}
 
-  startModule(klimModule:KlimModule) {
+  startModule(klimModule: KlimModule) {
     const dialogRef = this.dialog.open(ModuleInstanceCreateDialogComponent, {});
     dialogRef.afterClosed().subscribe((result: number) => {
       if (result) {
         const moduleInstance = new ModuleInstance(klimModule, result)
-        
         this._dataService.postModuleInstance(moduleInstance)
           .subscribe();
       }

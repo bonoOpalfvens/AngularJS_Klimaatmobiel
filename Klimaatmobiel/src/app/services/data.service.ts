@@ -7,6 +7,7 @@ import { School } from '../models/school';
 import { KlimModule } from '../models/klim-module';
 import { Materiaal } from '../models/materiaal';
 import { ModuleInstance } from '../models/module-instance';
+import { Team } from '../models/team';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,11 @@ export class DataService {
   updateKlimModule(klimModule: KlimModule) {
     return this.http
       .put(`${environment.apiUrl}/Module/${klimModule.id}`, klimModule.toJSON());
+  }
+
+  putTeam(team: Team) {
+    return this.http
+      .put(`${environment.apiUrl}/ModuleInstance/team/${team.id}`, team.toJSON());
   }
 
   getKlimModule$(id: number): Observable<KlimModule> {

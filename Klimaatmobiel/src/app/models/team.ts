@@ -1,9 +1,7 @@
 import { Bestelling } from './bestelling';
 
 export class Team {
-
     private _id: number;
-    
 
   constructor(
       private _teamNaam: string,
@@ -19,8 +17,8 @@ export class Team {
             json.budget,
             json.bestellingen.map(Bestelling.fromJSON)
         );
-        team._id = json.teamId
-        return team
+        team._id = json.teamId;
+        return team;
     }
 
     toJSON(): any {
@@ -31,19 +29,23 @@ export class Team {
         };
     }
 
+    get id(): number {
+        return this._id;
+    }
+
     get teamNaam(): string {
-        return this._teamNaam
+        return this._teamNaam;
     }
 
     get score(): number {
-        return this._score
+        return this._score;
     }
-    
+
     get budget(): number {
-        return this._budget
+        return this._budget;
     }
 
     get bestellingen(): Bestelling[] {
-        return this._bestellingen
+        return this._bestellingen;
     }
 }

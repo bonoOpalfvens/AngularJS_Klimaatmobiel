@@ -39,3 +39,7 @@ mat-toolbar {
     top: 0;
     left: 1;
 }
+.container {
+    margin-top: 50px;
+    width: 100% !important;
+}

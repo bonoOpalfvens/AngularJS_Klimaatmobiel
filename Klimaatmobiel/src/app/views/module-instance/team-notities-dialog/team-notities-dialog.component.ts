@@ -25,6 +25,10 @@ export class TeamNotitiesDialogComponent implements OnInit {
     });
   }
 
+  valueChanged(): boolean {
+    return this.notities !== this.teamForm.value.notities;
+  }
+
   async onSubmit() {
     this.dialogRef.close(this.teamForm.value.notities);
   }

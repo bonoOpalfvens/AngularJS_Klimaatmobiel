@@ -16,7 +16,7 @@
   
       <div>
         <button type="submit" matInput mat-raised-button color="primary"
-          [disabled]="teamForm.get('notities').errors"><mat-icon>save</mat-icon>
+          [disabled]="teamForm.get('notities').errors || !valueChanged()"><mat-icon>save</mat-icon>
           Opslaan
         </button>
         <button type="button" mat-raised-button mat-dialog-close color="warn" style="float: right"><mat-icon>cancel</mat-icon>Annuleer</button>

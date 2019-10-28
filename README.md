@@ -1,4 +1,4 @@
-Projecten III - Klim02: Klimaatmobiel - Angular webapplication
+# Projecten III - Klim02: Klimaatmobiel - Angular webapplication
 This project is intended as a tool for teachers to create and execute modules at their schools with the climate in mind
 
 Abdullah Sertkaya

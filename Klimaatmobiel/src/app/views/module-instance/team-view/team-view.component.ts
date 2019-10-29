@@ -19,39 +19,15 @@ export class TeamViewComponent implements OnInit {
         ) { }
 
         ngOnInit() {
-                const randomColor: number = Math.round(Math.random() * 15 + 1);
-                switch (randomColor) {
-                        case 1: this.backgroundColor = '#2ECC40';
-                                break;
-                        case 2: this.backgroundColor = '#7FDBFF';
-                                break;
-                        case 3: this.backgroundColor = '#fff3a5';
-                                break;
-                        case 4: this.backgroundColor = '#FFDC00';
-                                break;
-                        case 5: this.backgroundColor = '#FF4136';
-                                break;
-                        case 6: this.backgroundColor = '#ECD2C1';
-                                break;
-                        case 7: this.backgroundColor = '#E1CD94';
-                                break;
-                        case 8: this.backgroundColor = '#669b88';
-                                break;
-                        case 9: this.backgroundColor = '#64ba77';
-                                break;
-                        case 10: this.backgroundColor = '#a0c17f';
-                                break;
-                        case 11: this.backgroundColor = '#eaeaea';
-                                break;
-                        case 12: this.backgroundColor = '#b78bf4';
-                                break;
-                        case 13: this.backgroundColor = '#a389ff';
-                                break;
-                        case 14: this.backgroundColor = '#dca5ff';
-                                break;
-                        case 15: this.backgroundColor = '#ffa391';
-                                break;
-                }
+                const colors = [
+                        '#2ECC40', '#E1CD94', '#a389ff',
+                        '#7FDBFF', '#669b88', '#dca5ff',
+                        '#fff3a5', '#64ba77', '#ffa391',
+                        '#FFDC00', '#a0c17f', '#b78bf4',
+                        '#FF4136', '#eaeaea', '#ECD2C1'
+                        ];
+                const randomColor: number = Math.round(Math.random() * colors.length);
+                this.backgroundColor = colors[randomColor];
         }
         addNotities() {
                 const dialogConfig = new MatDialogConfig();

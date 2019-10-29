@@ -15,10 +15,10 @@ import { TeamNotitiesDialogComponent } from './team-notities-dialog/team-notitie
 
 @NgModule({
   declarations: [
-    ModuleInstanceViewComponent, 
-    BestellingViewComponent, 
-    BestellingListComponent, 
-    ModuleInstanceListComponent, 
+    ModuleInstanceViewComponent,
+    BestellingViewComponent,
+    BestellingListComponent,
+    ModuleInstanceListComponent,
     InstanceDashboardComponent,
     TeamListComponent,
     TeamViewComponent,
@@ -33,9 +33,9 @@ import { TeamNotitiesDialogComponent } from './team-notities-dialog/team-notitie
   ],
   entryComponents: [TeamNotitiesDialogComponent],
   exports: [
-    ModuleInstanceViewComponent, 
-    BestellingViewComponent, 
-    BestellingListComponent, 
+    ModuleInstanceViewComponent,
+    BestellingViewComponent,
+    BestellingListComponent,
     ModuleInstanceListComponent,
     InstanceDashboardComponent,
     TeamListComponent,

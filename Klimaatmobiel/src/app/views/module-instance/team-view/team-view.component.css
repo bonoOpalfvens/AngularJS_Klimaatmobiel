@@ -1,0 +1,7 @@
+.teamCard{
+    display: inline-block; 
+    width: 15%; 
+    min-width: 240px;
+    margin: 20px; 
+    background: #f2f2f2;
+}

@@ -43,12 +43,16 @@ export class DataService {
       .put(`${environment.apiUrl}/ModuleInstance/team/${team.id}`, team.toJSON());
   }
 
+  createTeam(id: number) {
+    return this.http.post(`${environment.apiUrl}/ModuleInstance/${id}/create_team`, id);
+  }
+
   getKlimModule$(id: number): Observable<KlimModule> {
     return this.http
       .get(`${environment.apiUrl}/Module/${id}`)
       .pipe(map((klim: any): KlimModule => KlimModule.fromJSON(klim)));
   }
-  
+
   getModuleInstance$(id: number): Observable<ModuleInstance> {
     return this.http
       .get(`${environment.apiUrl}/ModuleInstance/${id}`)

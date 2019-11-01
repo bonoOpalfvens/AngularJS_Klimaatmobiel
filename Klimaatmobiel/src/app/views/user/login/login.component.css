@@ -28,6 +28,11 @@ mat-icon {
     width: 50%;
 }
 
+.logo2 {
+    width: 30%;
+    opacity: 0.9;
+}
+
 button[color="primary"] {
     background: var(--go-magenta);
     padding: 0 60px;

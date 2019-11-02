@@ -11,6 +11,7 @@ export class ModuleInstance {
     private _bestellingen: Bestelling[];
     private _startDatum: Date;
     private _eindDatum: Date;
+    private _code: string;
 
     constructor(
         private _klimModule: KlimModule,
@@ -47,16 +48,16 @@ export class ModuleInstance {
         return this._aantalTeams;
     }
 
+    set aantalTeams(val: number) {
+        this._aantalTeams = val;
+    }
+
     get startDatum(): Date {
         return this._startDatum;
     }
 
     get eindDatum(): Date {
         return this._eindDatum;
-    }
-
-    set aantalTeams(val: number) {
-        this._aantalTeams = val;
     }
 
     get bestellingen(): Bestelling[] {

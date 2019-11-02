@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { AuthorisationService } from 'src/app/services/authorisation.service';
 
 @Component({
   selector: 'app-drawer',
@@ -15,10 +16,14 @@ export class DrawerComponent implements OnInit {
   public isExpanded = false;
 
   constructor(
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    private authService: AuthorisationService
   ) { }
 
   ngOnInit() {
   }
 
+  public logout() {
+    this.authService.logout();
+  }
 }

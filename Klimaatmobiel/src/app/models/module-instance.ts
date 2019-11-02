@@ -27,8 +27,8 @@ export class ModuleInstance {
         inst._moduleInstanceStatus = json.moduleInstanceStatus;
         inst._teams = json.teams.map(Team.fromJSON);
         inst._bestellingen = json.bestellingen.map(Bestelling.fromJSON);
-        inst._startDatum = json.startDatum,
-            inst._eindDatum = json.eindDatum
+        inst._startDatum = json.startDatum;
+        inst._eindDatum = json.eindDatum;
         return inst;
     }
 
@@ -85,7 +85,7 @@ export class ModuleInstance {
     }
 
     get statusString(): string {
-        return ModuleInstanceStatus[this._moduleInstanceStatus]
+        return ModuleInstanceStatus[this._moduleInstanceStatus];
     }
 
     get klimModule(): KlimModule {

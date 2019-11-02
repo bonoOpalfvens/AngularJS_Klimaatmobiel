@@ -30,7 +30,7 @@ export class KlimModuleViewComponent implements OnInit {
     const dialogRef = this._dialog.open(ModuleInstanceCreateDialogComponent, {});
     dialogRef.afterClosed().subscribe((result: number) => {
       if (result) {
-        const moduleInstance = new ModuleInstance(klimModule, result)
+        const moduleInstance = new ModuleInstance(klimModule, result);
         this._dataService.postModuleInstance(moduleInstance)
           .subscribe(
             val => {

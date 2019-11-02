@@ -37,8 +37,6 @@ export class KlimModuleEditComponent implements OnInit {
       this.module = item.module
     );
 
-    console.log(this.module)
-
     this.materialen = this.module.materialen;
     this.shop$ = of(this.module.materialen);
 

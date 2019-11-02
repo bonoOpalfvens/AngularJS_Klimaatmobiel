@@ -10,7 +10,7 @@ export class KlimModule {
         private _duurInMinuten: number,
         private _beschrijving: string,
         private _materialen: Materiaal[]
-    ) {}
+    ) { }
 
     static fromJSON(json: any): KlimModule {
         const klim = new KlimModule(
@@ -84,11 +84,11 @@ export class KlimModule {
         return this._creationDate;
     }
 
-    
 
-    
 
-    
 
-    
+
+
+
+
 }

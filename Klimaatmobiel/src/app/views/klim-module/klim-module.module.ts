@@ -13,6 +13,8 @@ import { KlimModuleEditComponent } from './klim-module-edit/klim-module-edit.com
 import { ModuleInstanceCreateDialogComponent } from './module-instance-create-dialog/module-instance-create-dialog.component';
 import { ViewsModule } from '../views.module';
 import { ModuleInstanceModule } from '../module-instance/module-instance.module';
+import { AddEigenschapComponent } from './add-eigenschap/add-eigenschap.component';
+
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { ModuleInstanceModule } from '../module-instance/module-instance.module'
     AddMateriaalComponent,
     ModuleFilterPipe,
     KlimModuleEditComponent,
-    ModuleInstanceCreateDialogComponent
+    ModuleInstanceCreateDialogComponent,
+    AddEigenschapComponent,
   ],
 
   imports: [
@@ -33,7 +36,7 @@ import { ModuleInstanceModule } from '../module-instance/module-instance.module'
     ModuleInstanceModule,
     RouterModule
   ],
-  entryComponents: [AddMateriaalComponent, ModuleInstanceCreateDialogComponent],
+  entryComponents: [AddMateriaalComponent, ModuleInstanceCreateDialogComponent, AddEigenschapComponent],
   exports: [
     KlimModuleCreateComponent,
     KlimModuleListComponent,

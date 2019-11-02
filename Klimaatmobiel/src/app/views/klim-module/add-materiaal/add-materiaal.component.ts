@@ -1,8 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Materiaal } from 'src/app/models/materiaal';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MatDialog } from '@angular/material';
+import { Eigenschap } from 'src/app/models/eigenschap';
+import { AddEigenschapComponent } from '../add-eigenschap/add-eigenschap.component';
 
 @Component({
   selector: 'app-add-materiaal',
@@ -11,16 +13,17 @@ import { MatDialogRef } from '@angular/material';
 })
 export class AddMateriaalComponent implements OnInit {
   @Input() materiaal: Materiaal;
+
   private base64: any;
 
   // tslint:disable-next-line: variable-name
   private _file: File;
-  public materialen$: Observable<Materiaal[]>;
   public materiaalForm: FormGroup;
 
   constructor(
     private _fb: FormBuilder,
-    public dialogRef: MatDialogRef<AddMateriaalComponent>
+    public dialogRef: MatDialogRef<AddMateriaalComponent>,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -39,6 +42,7 @@ export class AddMateriaalComponent implements OnInit {
       });
     }
   }
+
 
   onFileChanged(event: any) {
     this._file = event.target.files[0];

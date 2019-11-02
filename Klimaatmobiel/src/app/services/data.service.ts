@@ -14,16 +14,15 @@ import { Team } from '../models/team';
 })
 export class DataService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   postModule(klimModule: KlimModule): any {
-    return this.http.post(`${environment.apiUrl}/Module/`, klimModule.toJSON(),  { responseType: 'text' })
+    return this.http.post(`${environment.apiUrl}/Module/`, klimModule.toJSON(), { responseType: 'text' })
       .pipe();
   }
 
   postModuleInstance(moduleInstance: ModuleInstance): any {
-    console.log("post")
-    return this.http.post(`${environment.apiUrl}/ModuleInstance/`, moduleInstance.toJSON(),  { responseType: 'text' })
+    return this.http.post(`${environment.apiUrl}/ModuleInstance/`, moduleInstance.toJSON(), { responseType: 'text' })
       .pipe();
   }
 
@@ -48,7 +47,7 @@ export class DataService {
       .get(`${environment.apiUrl}/Module/${id}`)
       .pipe(map((klim: any): KlimModule => KlimModule.fromJSON(klim)));
   }
-  
+
   getModuleInstance$(id: number): Observable<ModuleInstance> {
     return this.http
       .get(`${environment.apiUrl}/ModuleInstance/${id}`)

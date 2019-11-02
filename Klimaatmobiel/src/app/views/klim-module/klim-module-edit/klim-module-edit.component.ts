@@ -8,6 +8,8 @@ import { MatDialog, MatSnackBar } from '@angular/material';
 import { AddMateriaalComponent } from '../add-materiaal/add-materiaal.component';
 import { KlimModule } from 'src/app/models/klim-module';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Eigenschap } from 'src/app/models/eigenschap';
+import { AddEigenschapComponent } from '../add-eigenschap/add-eigenschap.component';
 
 @Component({
   selector: 'app-klim-module-edit',
@@ -28,12 +30,15 @@ export class KlimModuleEditComponent implements OnInit {
     public dialog: MatDialog,
     private snackBar: MatSnackBar,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.route.data.subscribe(item =>
       this.module = item.module
     );
+
+    console.log(this.module)
+
     this.materialen = this.module.materialen;
     this.shop$ = of(this.module.materialen);
 
@@ -42,6 +47,21 @@ export class KlimModuleEditComponent implements OnInit {
       standaardBudget: [this.module.standaardBudget, [Validators.required]],
       duurInMinuten: [this.module.duurInMinuten, [Validators.required]],
       beschrijving: this.module.beschrijving
+    });
+  }
+
+  deleteEigenschap(materiaal: Materiaal, eigenschap: Eigenschap) {
+    materiaal.eigenschappen.splice(materiaal.eigenschappen.indexOf(eigenschap), 1);
+  }
+
+  addEigenschap(materiaal: Materiaal) {
+    const dialogRef = this.dialog.open(AddEigenschapComponent, {
+      data: { mat: materiaal }
+    });
+    dialogRef.afterClosed().subscribe((result: Eigenschap) => {
+      if (result) {
+        materiaal.eigenschappen.push(result);
+      }
     });
   }
 
@@ -60,7 +80,7 @@ export class KlimModuleEditComponent implements OnInit {
       this._dataService.deleteKlimModule(this.module.id).subscribe(
         val => {
           if (val) {
-            this.snackBar.open('Module succesvol verwijderd!', 'Sluit', {duration: 3000});
+            this.snackBar.open('Module succesvol verwijderd!', 'Sluit', { duration: 3000 });
             this._router.navigateByUrl('/Module/Lijst');
           }
         }
@@ -93,12 +113,11 @@ export class KlimModuleEditComponent implements OnInit {
       .updateKlimModule(this.module)
       .subscribe(
         val => {
-          if (val) {
-            this.snackBar.open('Module aangepast!', 'Sluit', {duration: 3000});
-          }
+          this.snackBar.open('Module aangepast!', 'Sluit', { duration: 3000 });
+          this._router.navigate(['Module/Lijst']);
         },
         (err: HttpErrorResponse) => {
-          this.snackBar.open('Er was een probleem bij het opslaan van de module.', 'Sluit', {duration: 15000});
+          this.snackBar.open('Er was een probleem bij het opslaan van de module.', 'Sluit', { duration: 15000 });
         }
       );
   }

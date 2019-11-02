@@ -5,8 +5,16 @@
 
 .padLeft {
     padding-left: 20px;
+    
+}
+
+#editButton {
     color: var(--go-donkergrijs);
 }
+
+#addEigenschap {
+    color: var(--text-green);
+}   
 
 mat-card{
     background: var(--background-light);
@@ -15,6 +23,24 @@ mat-card{
 mat-card-title{
     color: var(--text-green);
     font-weight: bold;
+}
+
+button[type="submit"]+button {
+    float: right;
+}
+
+button[color="primary"] {
+    background-color: var(--text-green);
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+img {
+    width: 40px;
+    height: 40px;
+    margin-top: 20px;
 }
 
 .shop {
@@ -39,22 +65,4 @@ mat-card-title{
 .shop>tr>td {
     width: 20%;
     line-height: 40px;
-}
-
-button[type="submit"]+button {
-    float: right;
-}
-
-button[color="primary"] {
-    background-color: var(--text-green);
-}
-
-mat-form-field {
-    width: 100%;
-}
-
-img {
-    width: 40px;
-    height: 40px;
-    margin-top: 20px;
 }

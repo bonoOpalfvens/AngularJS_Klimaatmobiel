@@ -59,7 +59,8 @@
               <th>Icoon</th>
               <th>Naam</th>
               <th>Omschrijving</th>
-              <th style="text-align: right">Prijs</th>
+              <th>Prijs</th>
+              <th>Eigenschappen</th>
             </thead>
             <tr *ngFor="let materiaal of shop$ | async">
               <td>
@@ -69,18 +70,33 @@
               <td matTooltip="{{materiaal.omschrijving}}">
                 {{(materiaal.omschrijving.length>40)? (materiaal.omschrijving | slice:0:40)+'...':(materiaal.omschrijving)}}
               </td>
-              <td style="text-align: right">{{materiaal.prijs | number:'.2'}}</td>
+              <td>{{materiaal.prijs | number:'.2'}}</td>
+              <table id="tblEigenschap">
+                  <td *ngFor="let eigenschap of materiaal.eigenschappen">
+                    <button (click)='deleteEigenschap(materiaal, eigenschap)' mat-icon-button color="warn">
+                      {{eigenschap.eigenschapNaam}}
+                      <i class="material-icons">
+                        clear
+                      </i>
+                    </button>
+                  </td>
+                </table>
               <td style="text-align: right;">
-                <button (click)="editMateriaal(materiaal)" class="padLeft" mat-icon-button>
-                  <i class="material-icons">
-                    edit
-                  </i>
-                </button>
-                <button (click)='deleteMateriaal(materiaal)' mat-icon-button color="warn">
-                  <i class="material-icons">
-                    delete_forever
-                  </i>
-                </button>
+                  <button (click)="editMateriaal(materiaal)" mat-icon-button id="editButton">
+                      <i class="material-icons">
+                        edit
+                      </i>
+                    </button>
+                    <button (click)='addEigenschap(materiaal)' mat-icon-button id="addEigenschap">
+                      <i class="material-icons">
+                        add
+                      </i>
+                    </button>
+                    <button (click)='deleteMateriaal(materiaal)' mat-icon-button color="warn">
+                      <i class="material-icons">
+                        delete_forever
+                      </i>
+                    </button>
               </td>
             </tr>
           </table>

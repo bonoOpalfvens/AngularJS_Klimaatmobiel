@@ -9,7 +9,7 @@ export class Bestelling {
         private _bestellingStatus: BestellingStatus,
         private _orderLines: OrderLine[],
         private _prijs: number
-    ) {}
+    ) { }
 
     static fromJSON(json: any) {
         const bestelling = new Bestelling(
@@ -43,8 +43,8 @@ export class Bestelling {
     get statusString(): string {
         return BestellingStatus[this._bestellingStatus]
     }
-    
+
     get prijs(): number {
-        return this._prijs
+        return this._prijs;
     }
 }

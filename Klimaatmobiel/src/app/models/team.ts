@@ -3,13 +3,13 @@ import { Bestelling } from './bestelling';
 export class Team {
     private _id: number;
 
-  constructor(
-      private _teamNaam: string,
-      private _score: number,
-      private _budget: number,
-      private _notities: string,
-      private _bestellingen: Bestelling[]
-  ) {}
+    constructor(
+        private _teamNaam: string,
+        private _score: number,
+        private _budget: number,
+        private _notities: string,
+        private _bestellingen: Bestelling[]
+    ) { }
 
     static fromJSON(json: any): Team {
         const team = new Team(
@@ -40,7 +40,7 @@ export class Team {
         return this._notities;
     }
 
-    set notities(val: string){
+    set notities(val: string) {
         this._notities = val;
     }
 

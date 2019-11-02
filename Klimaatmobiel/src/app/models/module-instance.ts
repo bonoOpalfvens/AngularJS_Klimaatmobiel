@@ -15,7 +15,7 @@ export class ModuleInstance {
     constructor(
         private _klimModule: KlimModule,
         private _aantalTeams: number
-    ) {}
+    ) { }
 
     static fromJSON(json: any): ModuleInstance {
         const inst = new ModuleInstance(
@@ -27,7 +27,7 @@ export class ModuleInstance {
         inst._teams = json.teams.map(Team.fromJSON);
         inst._bestellingen = json.bestellingen.map(Bestelling.fromJSON);
         inst._startDatum = json.startDatum,
-        inst._eindDatum = json.eindDatum
+            inst._eindDatum = json.eindDatum
         return inst;
     }
 
@@ -92,6 +92,6 @@ export class ModuleInstance {
     }
 
     set klimModule(val: KlimModule) {
-        this._klimModule = val
+        this._klimModule = val;
     }
 }

@@ -8,6 +8,8 @@ import { Materiaal } from 'src/app/models/materiaal';
 import { AddMateriaalComponent } from '../add-materiaal/add-materiaal.component';
 import { Observable, of } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Eigenschap } from 'src/app/models/eigenschap';
+import { AddEigenschapComponent } from '../add-eigenschap/add-eigenschap.component';
 
 @Component({
   selector: 'app-klim-module-create',
@@ -48,6 +50,21 @@ export class KlimModuleCreateComponent implements OnInit {
           list => list.push(result)
         );
         this.materialen.push(result);
+      }
+    });
+  }
+
+  deleteEigenschap(materiaal: Materiaal, eigenschap: Eigenschap) {
+    materiaal.eigenschappen.splice(materiaal.eigenschappen.indexOf(eigenschap), 1);
+  }
+
+  addEigenschap(materiaal: Materiaal) {
+    const dialogRef = this.dialog.open(AddEigenschapComponent, {
+      data: {mat: materiaal}
+    });
+    dialogRef.afterClosed().subscribe((result: Eigenschap) => {
+      if (result) {
+        materiaal.eigenschappen.push(result);
       }
     });
   }

@@ -54,10 +54,14 @@
         <mat-card>
           <mat-card-title>
             Winkel
-            <button (click)="addMateriaal()" color="primary" style="float: right; margin-bottom: 10px;" mat-raised-button
-              aria-label="Example icon-button with a heart icon">
-              <mat-icon>add_shopping_cart</mat-icon> Voeg materiaal toe
-            </button>
+            <button (click)="addMateriaal('Prijs')" color="primary" style="float: right; margin-bottom: 10px; margin-left: 10px;" mat-raised-button
+            aria-label="materiaal">
+            <mat-icon>add</mat-icon>Materiaal
+          </button>
+          <button (click)="addMateriaal('Prijs per gram')" color="primary" style="float: right; margin-bottom: 10px;" mat-raised-button
+            aria-label="ingrediënt">
+            <mat-icon>add</mat-icon>Ingrediënt
+          </button>
           </mat-card-title>
           <mat-card-content>
             <table class="shop" cellspacing="0">

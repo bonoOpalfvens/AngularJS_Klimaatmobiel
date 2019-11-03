@@ -48,9 +48,13 @@
       <mat-card>
         <mat-card-title>
           Winkel
-          <button (click)="addMateriaal()" color="primary" style="float: right; margin-bottom: 10px;" mat-raised-button
-            aria-label="Example icon-button with a heart icon">
-            <mat-icon>add_shopping_cart</mat-icon> Voeg materiaal toe
+          <button (click)="addMateriaal('Prijs')" color="primary" style="float: right; margin-bottom: 10px; margin-left: 10px;" mat-raised-button
+            aria-label="materiaal">
+            <mat-icon>add</mat-icon>Materiaal
+          </button>
+          <button (click)="addMateriaal('Prijs per gram')" color="primary" style="float: right; margin-bottom: 10px;" mat-raised-button
+            aria-label="ingrediënt">
+            <mat-icon>add</mat-icon>Ingrediënt
           </button>
         </mat-card-title>
         <mat-card-content>
@@ -72,31 +76,31 @@
               </td>
               <td>{{materiaal.prijs | number:'.2'}}</td>
               <table id="tblEigenschap">
-                  <td *ngFor="let eigenschap of materiaal.eigenschappen">
-                    <button (click)='deleteEigenschap(materiaal, eigenschap)' mat-icon-button color="warn">
-                      {{eigenschap.eigenschapNaam}}
-                      <i class="material-icons">
-                        clear
-                      </i>
-                    </button>
-                  </td>
-                </table>
+                <td *ngFor="let eigenschap of materiaal.eigenschappen">
+                  <button (click)='deleteEigenschap(materiaal, eigenschap)' mat-icon-button color="warn">
+                    {{eigenschap.eigenschapNaam}}
+                    <i class="material-icons">
+                      clear
+                    </i>
+                  </button>
+                </td>
+              </table>
               <td style="text-align: right;">
-                  <button (click)="editMateriaal(materiaal)" mat-icon-button id="editButton">
-                      <i class="material-icons">
-                        edit
-                      </i>
-                    </button>
-                    <button (click)='addEigenschap(materiaal)' mat-icon-button id="addEigenschap">
-                      <i class="material-icons">
-                        add
-                      </i>
-                    </button>
-                    <button (click)='deleteMateriaal(materiaal)' mat-icon-button color="warn">
-                      <i class="material-icons">
-                        delete_forever
-                      </i>
-                    </button>
+                <button (click)="editMateriaal(materiaal)" mat-icon-button id="editButton">
+                  <i class="material-icons">
+                    edit
+                  </i>
+                </button>
+                <button (click)='addEigenschap(materiaal)' mat-icon-button id="addEigenschap">
+                  <i class="material-icons">
+                    add
+                  </i>
+                </button>
+                <button (click)='deleteMateriaal(materiaal)' mat-icon-button color="warn">
+                  <i class="material-icons">
+                    delete_forever
+                  </i>
+                </button>
               </td>
             </tr>
           </table>

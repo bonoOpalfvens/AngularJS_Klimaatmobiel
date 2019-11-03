@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Materiaal } from 'src/app/models/materiaal';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MatDialog } from '@angular/material';
+import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 import { Eigenschap } from 'src/app/models/eigenschap';
 import { AddEigenschapComponent } from '../add-eigenschap/add-eigenschap.component';
 
@@ -23,7 +23,8 @@ export class AddMateriaalComponent implements OnInit {
   constructor(
     private _fb: FormBuilder,
     public dialogRef: MatDialogRef<AddMateriaalComponent>,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
   ngOnInit() {

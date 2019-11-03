@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Materiaal } from 'src/app/models/materiaal';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { DataService } from 'src/app/services/data.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatSnackBar } from '@angular/material';
@@ -10,6 +10,7 @@ import { KlimModule } from 'src/app/models/klim-module';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Eigenschap } from 'src/app/models/eigenschap';
 import { AddEigenschapComponent } from '../add-eigenschap/add-eigenschap.component';
+import { Eenheid } from 'src/app/models/eenheid';
 
 @Component({
   selector: 'app-klim-module-edit',
@@ -63,9 +64,8 @@ export class KlimModuleEditComponent implements OnInit {
     });
   }
 
-  addMateriaal(prijsString: string) {
+  addMateriaal() {
     const dialogRef = this.dialog.open(AddMateriaalComponent, {
-      data: {pString: prijsString}
     });
     dialogRef.afterClosed().subscribe((result: Materiaal) => {
       if (result) {
@@ -100,6 +100,10 @@ export class KlimModuleEditComponent implements OnInit {
         this.materialen[this.materialen.indexOf(materiaal)] = result;
       }
     });
+  }
+
+  getEenheidString(eenheid: Eenheid) {
+    return Eenheid[eenheid];
   }
 
   onSubmit() {

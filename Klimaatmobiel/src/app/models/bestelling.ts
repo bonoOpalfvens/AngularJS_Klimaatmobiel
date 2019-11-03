@@ -17,8 +17,8 @@ export class Bestelling {
             json.orderLines.map(OrderLine.fromJSON),
             json.prijs
         );
-        bestelling._id = json.bestellingId
-        return bestelling
+        bestelling._id = json.bestellingId;
+        return bestelling;
     }
 
     toJSON(): any {
@@ -41,7 +41,7 @@ export class Bestelling {
     }
 
     get statusString(): string {
-        return BestellingStatus[this._bestellingStatus]
+        return BestellingStatus[this._bestellingStatus];
     }
 
     get prijs(): number {

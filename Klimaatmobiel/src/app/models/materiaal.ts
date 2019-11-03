@@ -1,9 +1,11 @@
 import { Eigenschap } from './eigenschap';
+import { Eenheid } from './eenheid';
 
 export class Materiaal {
     // tslint:disable: variable-name
     private _id: number;
     private _eigenschappen: Eigenschap[] = [];
+    private _eenheid: Eenheid;
 
     constructor(
         private _icoon: string,
@@ -17,10 +19,11 @@ export class Materiaal {
             json.icoon,
             json.materiaalNaam,
             json.beschrijving,
-            json.prijs
+            json.prijs,
         );
         obj._id = json.moduleMateriaalId;
         obj._eigenschappen = json.materiaal.eigenschappen.map(Eigenschap.fromJSON);
+        obj._eenheid = json.eenheid;
         return obj;
     }
 
@@ -31,7 +34,8 @@ export class Materiaal {
             prijs: this._prijs,
             beschrijving: this._omschrijving,
             icoon: this._icoon,
-            eigenschappen: this._eigenschappen.map(e => e.toJSON())
+            eigenschappen: this._eigenschappen.map(e => e.toJSON()),
+            eenheid: this._eenheid
         };
     }
 
@@ -57,5 +61,13 @@ export class Materiaal {
 
     get eigenschappen(): Eigenschap[] {
         return this._eigenschappen;
+    }
+
+    get eenheid(): Eenheid {
+        return this._eenheid;
+    }
+
+    set eenheid(val: Eenheid) {
+        this._eenheid = val;
     }
 }

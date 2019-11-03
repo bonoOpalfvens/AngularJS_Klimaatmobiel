@@ -10,9 +10,19 @@
       <input matInput aria-label="naam" formControlName="naam" required />
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field id="eenheid">
+      <mat-label>Eenheid</mat-label>
+      <mat-select formControlName="eenheid" aria-label="eenheid">
+        <mat-option value="-1">per stuk</mat-option>
+        <mat-option value="0">ml</mat-option>
+        <mat-option value="1">g</mat-option>
+        <mat-option value="2">cm</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field id="prijs">
       <mat-label>
-        <mat-icon>attach_money</mat-icon> {{data.pString}}
+        <mat-icon>attach_money</mat-icon> Prijs per eenheid
       </mat-label>
       <input matInput aria-label="prijs" type="number" formControlName="prijs" required />
     </mat-form-field>
@@ -29,7 +39,8 @@
 
     <div>
       <button type="submit" matInput mat-raised-button color="primary"
-        [disabled]="materiaalForm.get('omschrijving').errors || materiaalForm.get('prijs').errors || materiaalForm.get('naam').errors"><mat-icon>save</mat-icon>
+        [disabled]="materiaalForm.get('omschrijving').errors || materiaalForm.get('prijs').errors || materiaalForm.get('naam').errors
+         || materiaalForm.get('eenheid').errors"><mat-icon>save</mat-icon>
         Opslaan
       </button>
       

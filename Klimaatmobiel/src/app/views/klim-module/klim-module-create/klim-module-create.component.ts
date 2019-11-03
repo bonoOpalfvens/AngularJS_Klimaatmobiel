@@ -42,9 +42,8 @@ export class KlimModuleCreateComponent implements OnInit {
     });
   }
 
-  addMateriaal(prijsString: string) {
+  addMateriaal() {
     const dialogRef = this.dialog.open(AddMateriaalComponent, {
-      data: {pString: prijsString}
     });
     dialogRef.afterClosed().subscribe((result: Materiaal) => {
       if (result) {

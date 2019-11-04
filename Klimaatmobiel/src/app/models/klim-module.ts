@@ -40,6 +40,10 @@ export class KlimModule {
         return this._id;
     }
 
+    set id(val: number) {
+        this._id = val;
+    }
+
     get standaardBudget(): number {
         return this._standaardBudget;
     }

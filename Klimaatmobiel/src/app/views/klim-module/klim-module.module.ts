@@ -14,6 +14,7 @@ import { ModuleInstanceCreateDialogComponent } from './module-instance-create-di
 import { ViewsModule } from '../views.module';
 import { ModuleInstanceModule } from '../module-instance/module-instance.module';
 import { AddEigenschapComponent } from './add-eigenschap/add-eigenschap.component';
+import { KlimModuleDetailsComponent } from './klim-module-details/klim-module-details.component';
 
 
 
@@ -27,6 +28,7 @@ import { AddEigenschapComponent } from './add-eigenschap/add-eigenschap.componen
     KlimModuleEditComponent,
     ModuleInstanceCreateDialogComponent,
     AddEigenschapComponent,
+    KlimModuleDetailsComponent,
   ],
 
   imports: [

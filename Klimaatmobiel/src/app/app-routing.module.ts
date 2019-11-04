@@ -14,10 +14,13 @@ const routes: Routes = [
   { path: 'User/Login', component: LoginComponent },
   { path: 'User/Register', component: RegisterComponent },
 
-  { path: 'Module/CreeerModule', component: KlimModuleCreateComponent, canActivate: [AuthGuard]},
-  { path: 'Module/Bewerk/:id', component: KlimModuleEditComponent, canActivate: [AuthGuard], resolve: {module: ModuleGuard}},
-  { path: 'Module/Lijst', component: KlimModuleListComponent, canActivate: [AuthGuard]},
-  { path: 'ModuleInstance/Dashboard/:id', component: InstanceDashboardComponent, canActivate: [AuthGuard], resolve:{moduleInstance: ModuleInstanceGuard}},
+  { path: 'Module/CreeerModule', component: KlimModuleCreateComponent, canActivate: [AuthGuard] },
+  { path: 'Module/Bewerk/:id', component: KlimModuleEditComponent, canActivate: [AuthGuard], resolve: { module: ModuleGuard } },
+  { path: 'Module/Lijst', component: KlimModuleListComponent, canActivate: [AuthGuard] },
+  {
+    path: 'ModuleInstance/Dashboard/:id', component: InstanceDashboardComponent,
+    canActivate: [AuthGuard], resolve: { moduleInstance: ModuleInstanceGuard }
+  },
 
   { path: '', redirectTo: 'User/Login', pathMatch: 'full' },
   { path: '**', redirectTo: 'NotFound', pathMatch: 'full' }

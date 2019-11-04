@@ -78,14 +78,14 @@
               <td>{{materiaal.eenheid == null ? "per stuk" : getEenheidString(materiaal.eenheid)}}</td>
               <td>{{materiaal.prijs | number:'.2'}}</td>
               <table id="tblEigenschap">
-                <td *ngFor="let eigenschap of materiaal.eigenschappen">
+                <tr *ngFor="let eigenschap of materiaal.eigenschappen">
                   <button (click)='deleteEigenschap(materiaal, eigenschap)' mat-icon-button color="warn">
                     {{eigenschap.eigenschapNaam}}
                     <i class="material-icons">
                       clear
                     </i>
                   </button>
-                </td>
+                </tr>
               </table>
               <td style="text-align: right;">
                 <button (click)="editMateriaal(materiaal)" mat-icon-button id="editButton">

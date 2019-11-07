@@ -6,6 +6,7 @@
 /* Variables */
 :root {
     --background-dark: #1A1A1D;
+    --background-mediumdark: rgb(42, 42, 46);
     --background-light: #f5f5f5;
     --text-green: #37866d;
 
@@ -38,4 +39,8 @@ mat-toolbar {
     position: fixed;
     top: 0;
     left: 1;
+}
+.container {
+    margin-top: 50px;
+    width: 100% !important;
 }

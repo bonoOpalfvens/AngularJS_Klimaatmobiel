@@ -10,6 +10,13 @@ import { KlimModuleViewComponent } from './klim-module-view/klim-module-view.com
 import { AddMateriaalComponent } from './add-materiaal/add-materiaal.component';
 import { ModuleFilterPipe } from 'src/app/pipes/module-filter.pipe';
 import { KlimModuleEditComponent } from './klim-module-edit/klim-module-edit.component';
+import { ModuleInstanceCreateDialogComponent } from './module-instance-create-dialog/module-instance-create-dialog.component';
+import { ViewsModule } from '../views.module';
+import { ModuleInstanceModule } from '../module-instance/module-instance.module';
+import { AddEigenschapComponent } from './add-eigenschap/add-eigenschap.component';
+import { KlimModuleDetailsComponent } from './klim-module-details/klim-module-details.component';
+
+
 
 @NgModule({
   declarations: [
@@ -18,15 +25,20 @@ import { KlimModuleEditComponent } from './klim-module-edit/klim-module-edit.com
     KlimModuleViewComponent,
     AddMateriaalComponent,
     ModuleFilterPipe,
-    KlimModuleEditComponent],
+    KlimModuleEditComponent,
+    ModuleInstanceCreateDialogComponent,
+    AddEigenschapComponent,
+    KlimModuleDetailsComponent,
+  ],
 
   imports: [
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
+    ModuleInstanceModule,
     RouterModule
   ],
-  entryComponents: [AddMateriaalComponent],
+  entryComponents: [AddMateriaalComponent, ModuleInstanceCreateDialogComponent, AddEigenschapComponent],
   exports: [
     KlimModuleCreateComponent,
     KlimModuleListComponent,

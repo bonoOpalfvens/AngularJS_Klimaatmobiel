@@ -1,0 +1,25 @@
+<mat-dialog-content>
+    <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
+  
+      <mat-form-field>
+        <mat-label>
+          <mat-icon>account_balance</mat-icon> Notities
+        </mat-label>
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                                cdkAutosizeMinRows="10" cdkAutosizeMaxRows="15" aria-label="notities" type="text"
+                                formControlName="notities"></textarea>
+      </mat-form-field>
+  
+      <mat-error *ngIf="teamForm.get('notities').errors">
+  
+      </mat-error>
+  
+      <div>
+        <button type="submit" matInput mat-raised-button color="primary"
+          [disabled]="teamForm.get('notities').errors || !valueChanged()"><mat-icon>save</mat-icon>
+          Opslaan
+        </button>
+        <button type="button" mat-raised-button mat-dialog-close color="warn" style="float: right"><mat-icon>cancel</mat-icon>Annuleer</button>
+      </div>
+    </form>
+  </mat-dialog-content>

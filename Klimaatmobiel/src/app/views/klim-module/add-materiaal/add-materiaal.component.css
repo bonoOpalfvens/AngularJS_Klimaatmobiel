@@ -1,6 +1,13 @@
 mat-form-field {
     width: 100%;
 }
+#eenheid {
+    width: 10%;
+}
+#prijs {
+    width: 89%;
+    float: right;
+}
 mat-icon {
     margin-right: 10px;
 }

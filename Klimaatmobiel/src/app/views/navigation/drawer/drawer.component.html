@@ -11,7 +11,7 @@
             <mat-icon mat-list-icon *ngIf="!isExpanded">chevron_right</mat-icon>
         </mat-list-item>
         <mat-divider></mat-divider>
-        <mat-list-item [routerLinkActive]="['active']" [routerLink]="['Home']">
+        <mat-list-item [routerLinkActive]="['active']" [routerLink]="['Module/Lijst']">
           <mat-icon mat-list-icon>home</mat-icon>
           <p matLine *ngIf="isExpanded">Dashboard</p>
         </mat-list-item>
@@ -23,11 +23,7 @@
           <mat-icon mat-list-icon>eco</mat-icon>
           <p matLine *ngIf="isExpanded">Materialen</p>
         </mat-list-item>
-        <mat-list-item [routerLinkActive]="['active']" [routerLink]="['Boards']">
-          <mat-icon mat-list-icon>person</mat-icon>
-          <p matLine *ngIf="isExpanded">Profiel</p>
-        </mat-list-item>
-        <mat-list-item [routerLinkActive]="['active']" [routerLink]="['Boards']">
+        <mat-list-item *ngIf="this.authService.user$ | async" (click)="logout();" [routerLink]="['/User/Login']">
           <mat-icon mat-list-icon>exit_to_app</mat-icon>
           <p matLine *ngIf="isExpanded">Log Out</p>
         </mat-list-item>

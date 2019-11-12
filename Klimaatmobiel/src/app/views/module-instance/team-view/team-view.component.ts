@@ -4,6 +4,7 @@ import { DataService } from 'src/app/services/data.service';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { TeamNotitiesDialogComponent } from '../team-notities-dialog/team-notities-dialog.component';
 import { BestellingStatus } from 'src/app/models/bestelling-status';
+import { TeamBudgetDialogComponent } from '../team-budget-dialog/team-budget-dialog.component';
 
 @Component({
         selector: 'app-team-view',
@@ -51,6 +52,24 @@ export class TeamViewComponent implements OnInit {
                                         .subscribe();
                         }
                 });
+        }
+
+        editBudget() {
+                const dialogConfig = new MatDialogConfig();
+
+                dialogConfig.disableClose = true;
+                dialogConfig.autoFocus = true;
+
+                dialogConfig.data = {
+                        budget: this.team.budget
+                };
+                const dialogRef = this.dialog.open(TeamBudgetDialogComponent, dialogConfig);
+                dialogRef.afterClosed().subscribe((result: number) => {
+                        if (result) {
+                                this.team.budget = result;
+                                this._dataService.putTeam(this.team).subscribe();
+                        }
+                })
         }
 
         get pendingLength(): number {

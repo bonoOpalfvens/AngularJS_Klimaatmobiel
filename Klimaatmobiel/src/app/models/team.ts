@@ -56,6 +56,10 @@ export class Team {
         return this._budget;
     }
 
+    set budget(val: number){
+        this._budget = val;
+    }
+
     get bestellingen(): Bestelling[] {
         return this._bestellingen;
     }

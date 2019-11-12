@@ -1,5 +1,5 @@
 <mat-dialog-content>
-  
+
   <form [formGroup]="materiaalForm" (ngSubmit)="onSubmit()">
     <input type="file" (change)="onFileChanged($event)" required />
 
@@ -28,24 +28,26 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-        <mat-label>Omschrijving</mat-label>
-        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5"
-          cdkAutosizeMaxRows="10" aria-label="omschrijving" formControlName="omschrijving" required></textarea>
-      </mat-form-field>
+      <mat-label>Omschrijving</mat-label>
+      <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5"
+        cdkAutosizeMaxRows="10" aria-label="omschrijving" formControlName="omschrijving" required></textarea>
+    </mat-form-field>
 
     <mat-error *ngIf="materiaalForm.get('omschrijving').errors && materiaalForm.get('omschrijving').touched">
 
     </mat-error>
 
     <div>
-      <button type="submit" matInput mat-raised-button color="primary"
-        [disabled]="materiaalForm.get('omschrijving').errors || materiaalForm.get('prijs').errors || materiaalForm.get('naam').errors
-         || materiaalForm.get('eenheid').errors"><mat-icon>save</mat-icon>
+      <button type="submit" matInput mat-raised-button color="primary" [disabled]="materiaalForm.get('omschrijving').errors || materiaalForm.get('prijs').errors || materiaalForm.get('naam').errors
+         || materiaalForm.get('eenheid').errors">
+        <mat-icon>save</mat-icon>
         Opslaan
       </button>
-      
-      <button type="button" mat-raised-button mat-dialog-close color="warn" style="float: right"><mat-icon>cancel</mat-icon>Annuleer</button>
-      
+
+      <button type="button" mat-raised-button mat-dialog-close color="warn" style="float: right">
+        <mat-icon>cancel</mat-icon>Annuleer
+      </button>
+
     </div>
   </form>
 </mat-dialog-content>

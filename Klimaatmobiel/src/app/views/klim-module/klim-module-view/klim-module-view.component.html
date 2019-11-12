@@ -4,12 +4,19 @@
     <mat-card-subtitle>
       <b>Aangemaakt op: </b>{{klimModule.creationDate | date: 'dd/LL/yyyy, HH:mm:ss'}} <br>
       <b>Budget: </b>{{klimModule.standaardBudget | number: '.2'}} <br>
-      <span matTooltip="{{klimModule.beschrijving}}"><b>Omschrijving: </b>{{(klimModule.beschrijving.length>60)? (klimModule.beschrijving | slice:0:60)+'...':(klimModule.beschrijving)}}</span>
+      <span matTooltip="{{klimModule.beschrijving}}"><b>Omschrijving:
+        </b>{{(klimModule.beschrijving.length>60)? (klimModule.beschrijving | slice:0:60)+'...':(klimModule.beschrijving)}}</span>
     </mat-card-subtitle>
   </mat-card-header>
-  <mat-card-actions style="text-align: right;">     
-        <button mat-flat-button color="warn" (click)="this.deleteFunc(klimModule)"><mat-icon>delete_forever</mat-icon></button>
-        <button mat-stroked-button [routerLink]="['/Module/Bewerk', klimModule.id]" ><mat-icon>build</mat-icon></button>
-        <button mat-flat-button color="primary" [routerLink]="['/Module/Lijst']" (click)="startModule(klimModule)"><mat-icon>play_circle_outlined</mat-icon></button>
+  <mat-card-actions style="text-align: right;">
+    <button mat-flat-button color="warn" (click)="this.deleteFunc(klimModule)">
+      <mat-icon>delete_forever</mat-icon>
+    </button>
+    <button mat-stroked-button [routerLink]="['/Module/Bewerk', klimModule.id]">
+      <mat-icon>build</mat-icon>
+    </button>
+    <button mat-flat-button color="primary" [routerLink]="['/Module/Lijst']" (click)="startModule(klimModule)">
+      <mat-icon>play_circle_outlined</mat-icon>
+    </button>
   </mat-card-actions>
 </mat-card>

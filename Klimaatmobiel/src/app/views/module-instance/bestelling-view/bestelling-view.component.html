@@ -1,5 +1,5 @@
 <mat-card>
-    <p>totaal: €{{bestelling.prijs}}</p>
-    <p>status: {{bestelling.statusString}}</p>
-    <app-order-line-view *ngFor="let orderLine of bestelling.orderLines" [orderLine]="orderLine"></app-order-line-view>
+  <p>totaal: €{{bestelling.prijs}}</p>
+  <p>status: {{bestelling.statusString}}</p>
+  <app-order-line-view *ngFor="let orderLine of bestelling.orderLines" [orderLine]="orderLine"></app-order-line-view>
 </mat-card>

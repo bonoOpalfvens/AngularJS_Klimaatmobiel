@@ -6,14 +6,14 @@
                 <mat-icon>account_balance</mat-icon> Budget
               </mat-label>
         <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
-                                cdkAutosizeMinRows="10" cdkAutosizeMaxRows="15" aria-label="budget" type="text"
+                                cdkAutosizeMinRows="1" cdkAutosizeMaxRows="2" aria-label="budget" type="text"
                                 formControlName="budget"></textarea>
         </mat-form-field>
 
         <mat-error *ngIf="teamForm.get('budget').errors">
             
         </mat-error>
-        
+
         <div>
             <button type="submit" matInput mat-raised-button color="primary"
               [disabled]="teamForm.get('budget').errors || !valueChanged()"><mat-icon>save</mat-icon>

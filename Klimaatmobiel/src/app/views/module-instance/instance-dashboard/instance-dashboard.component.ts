@@ -4,6 +4,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ModuleInstanceStatus } from 'src/app/models/module-instance-status';
 import { DataService } from 'src/app/services/data.service';
 
+import { MatSnackBar } from '@angular/material';
+import { HttpErrorResponse } from '@angular/common/http';
+
 @Component({
   selector: 'app-instance-dashboard',
   templateUrl: './instance-dashboard.component.html',
@@ -20,6 +23,7 @@ export class InstanceDashboardComponent implements OnInit {
   constructor(
     private _router: Router,
     private _dataService: DataService,
+    private _snackBar: MatSnackBar,
     public route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -37,11 +41,32 @@ export class InstanceDashboardComponent implements OnInit {
   completeModule() {
     this.pauseTimer();
     this.moduleInstance.moduleInstanceStatus = ModuleInstanceStatus.COMPLETED;
+    this.export();
   }
 
   cancelModule() {
     this.pauseTimer();
     this.moduleInstance.moduleInstanceStatus = ModuleInstanceStatus.CANCELLED;
+    this.export();
+  }
+
+  exportModule(){
+    this.export();
+  }
+
+  export(){
+    this._dataService.postModuleInstance(this.moduleInstance)
+      .subscribe(
+        val => {
+          if(val){
+            this._router.navigate(['ModuleInstance/Dashboard/'.concat(JSON.parse(val).moduleInstanceId).concat('/CreateRapport')]);
+            this._snackBar.open('Succes!', 'Sluit', {duration: 3000});
+          }
+        },
+        (err: HttpErrorResponse) => {
+          this._snackBar.open('Er was een probleem bij het exporteren van de module.', 'Sluit', {duration: 15000});
+        }
+      );
   }
 
   startTimer() {

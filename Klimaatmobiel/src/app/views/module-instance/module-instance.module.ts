@@ -12,6 +12,7 @@ import { TeamListComponent } from './team-list/team-list.component';
 import { TeamViewComponent } from './team-view/team-view.component';
 import { OrderLineViewComponent } from './order-line-view/order-line-view.component';
 import { TeamNotitiesDialogComponent } from './team-notities-dialog/team-notities-dialog.component';
+import { RapportEndOfModuleComponent } from './rapport-end-of-module/rapport-end-of-module.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TeamNotitiesDialogComponent } from './team-notities-dialog/team-notitie
     TeamListComponent,
     TeamViewComponent,
     OrderLineViewComponent,
-    TeamNotitiesDialogComponent],
+    TeamNotitiesDialogComponent,
+    RapportEndOfModuleComponent],
 
   imports: [
     CommonModule,

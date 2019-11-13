@@ -8,6 +8,8 @@
                         <i class="material-icons">play_circle_outline</i> Start</button>
                 <button (click)='completeModule()' [disabled]="!endable" mat-button color="hint">
                         <i class="material-icons">stop</i> Stop</button>
+                <button (click)='exportModule()' mat-button color="go_magenta">
+                        <i class="material-icons">share</i>Exporteer</button>
                 <button (click)='cancelModule()' mat-button color="warn">
                         <i class="material-icons">delete_forever</i> Verwijder</button>
                 <button (click)='createTeam()' mat-button style="float:right">

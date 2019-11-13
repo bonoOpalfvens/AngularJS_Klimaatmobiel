@@ -1,17 +1,27 @@
 <mat-card [ngStyle]="{'border': backgroundColor+' 3px solid'}" class="teamCard">
-    <mat-card-header>
-      <mat-card-title>{{team.teamNaam}}</mat-card-title>
-      <mat-card-subtitle>
-            <b>Budget: </b>€{{team.budget}} <br>
-            <span matTooltip="{{team.notities}}"><b>Notities: </b>{{(team.notities && team.notities.length>60)? (team.notities | slice:0:60)+'...':(team.notities)}}</span>
-      </mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-actions>
-      <a *ngIf="pendingLength === 0; else badgeButton" mat-stroked-button (click)="addNotities()" style="float: right;"><mat-icon>local_grocery_store</mat-icon></a>
-      <ng-template #badgeButton>
-          <a mat-stroked-button (click)="addNotities()" matBadge="{{pendingLength}}" matBadgePosition="before" matBadgeColor="warn" style="float: right;"><mat-icon>local_grocery_store</mat-icon></a>
-      </ng-template>
-      <a mat-button (click)="addNotities()" matTooltip="Bewerk notities" color="hint"><mat-icon>note_add</mat-icon></a>
-      <a mat-button (click)="editBudget()" matTooltip="Bewerk budget" color="hint"><mat-icon>credit_card</mat-icon></a>
-    </mat-card-actions>
+  <mat-card-header>
+    <mat-card-title>{{team.teamNaam}}</mat-card-title>
+    <mat-card-subtitle>
+      <b>Budget: </b>€{{team.budget}} <br>
+      <span matTooltip="{{team.notities}}" style="word-break: break-all;"><b>Notities:
+        </b>{{(team.notities && team.notities.length>60)? (team.notities | slice:0:60)+'...':(team.notities)}}</span>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <a *ngIf="pendingLength === 0; else badgeButton" mat-stroked-button (click)="addNotities()" style="float: right;">
+      <mat-icon>local_grocery_store</mat-icon>
+    </a>
+    <ng-template #badgeButton>
+      <a mat-stroked-button (click)="addNotities()" matBadge="{{pendingLength}}" matBadgePosition="before"
+        matBadgeColor="warn" style="float: right;">
+        <mat-icon>local_grocery_store</mat-icon>
+      </a>
+    </ng-template>
+    <a mat-button (click)="addNotities()" matTooltip="Bewerk notities" color="hint">
+      <mat-icon>note_add</mat-icon>
+    </a>
+    <a mat-button (click)="editBudget()" matTooltip="Bewerk budget" color="hint">
+      <mat-icon>credit_card</mat-icon>
+    </a>
+  </mat-card-actions>
 </mat-card>

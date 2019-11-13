@@ -20,5 +20,4 @@ export class ModuleInstanceViewComponent implements OnInit {
   OnDashboard() {
     
   }
-
 }

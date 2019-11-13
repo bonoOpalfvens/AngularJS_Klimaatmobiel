@@ -21,7 +21,7 @@ export class TeamBudgetDialogComponent implements OnInit {
 
   ngOnInit() {
     this.teamForm = this._fb.group({
-      budget: [this.budget, [Validators.required]]
+      budget: [this.budget, [Validators.required, Validators.pattern("^[1-9][0-9]*$")]]
     });
   }
 

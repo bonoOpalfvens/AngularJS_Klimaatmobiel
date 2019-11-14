@@ -1,11 +1,7 @@
-<mat-card style="display: inline-block;width: 45%; margin-left: 15px;">
-
-  <mat-card-subtitle>
-    Bestellingen van team
-  </mat-card-subtitle>
-
-  <mat-card-content>
-    <app-bestelling-view *ngFor="let bestelling of bestellingen" [bestelling]="bestelling">
-    </app-bestelling-view>
-  </mat-card-content>
-</mat-card>
+<h2>Bestellingen van: {{teamNaam}}</h2>
+<mat-divider></mat-divider>
+<mat-list>
+  <mat-list-item *ngFor="let bestelling of bestellingen">
+    <app-bestelling-view [bestelling]="bestelling"></app-bestelling-view>
+  </mat-list-item>
+</mat-list>

@@ -31,7 +31,7 @@ import { TeamNotitiesDialogComponent } from './team-notities-dialog/team-notitie
     ReactiveFormsModule,
     RouterModule
   ],
-  entryComponents: [TeamNotitiesDialogComponent],
+  entryComponents: [TeamNotitiesDialogComponent,BestellingListComponent],
   exports: [
     ModuleInstanceViewComponent,
     BestellingViewComponent,

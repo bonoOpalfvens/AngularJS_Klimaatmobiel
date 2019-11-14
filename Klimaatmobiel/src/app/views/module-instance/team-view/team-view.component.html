@@ -8,11 +8,11 @@
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-actions>
-    <a *ngIf="pendingLength === 0; else badgeButton" mat-stroked-button (click)="addNotities()" style="float: right;">
+    <a *ngIf="pendingLength === 0; else badgeButton" mat-stroked-button (click)="checkBestellingen()" style="float: right;">
       <mat-icon>local_grocery_store</mat-icon>
     </a>
     <ng-template #badgeButton>
-      <a mat-stroked-button (click)="addNotities()" matBadge="{{pendingLength}}" matBadgePosition="before"
+      <a mat-stroked-button (click)="checkBestellingen()" matBadge="{{pendingLength}}" matBadgePosition="before"
         matBadgeColor="warn" style="float: right;">
         <mat-icon>local_grocery_store</mat-icon>
       </a>

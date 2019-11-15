@@ -28,6 +28,8 @@ Frontend
 Backend
 --
 
+https://klimapi20191115094457.azurewebsites.net/api
+
 Test Account
 
 email: leerkracht1@gmail.com

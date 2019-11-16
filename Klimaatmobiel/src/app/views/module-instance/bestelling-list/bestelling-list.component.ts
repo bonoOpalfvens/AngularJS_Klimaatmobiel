@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Bestelling } from 'src/app/models/bestelling';
 import { MAT_DIALOG_DATA } from '@angular/material';
+import { Team } from 'src/app/models/team';
 
 @Component({
   selector: 'app-bestelling-list',
@@ -10,11 +11,11 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 export class BestellingListComponent implements OnInit {
 
   public bestellingen: Bestelling[]
-  public teamNaam: String;
+  public team: Team;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
     this.bestellingen = data.bestellingen;
-    this.teamNaam = data.teamNaam;
+    this.team = data.team;
   }
 
   ngOnInit() {

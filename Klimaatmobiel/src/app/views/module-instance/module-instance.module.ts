@@ -13,6 +13,7 @@ import { TeamViewComponent } from './team-view/team-view.component';
 import { OrderLineViewComponent } from './order-line-view/order-line-view.component';
 import { TeamNotitiesDialogComponent } from './team-notities-dialog/team-notities-dialog.component';
 import { RapportEndOfModuleComponent } from './rapport-end-of-module/rapport-end-of-module.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { RapportEndOfModuleComponent } from './rapport-end-of-module/rapport-end
     TeamViewComponent,
     OrderLineViewComponent,
     TeamNotitiesDialogComponent,
-    RapportEndOfModuleComponent],
+    RapportEndOfModuleComponent,
+    ConfirmationDialogComponent],
 
   imports: [
     CommonModule,
@@ -33,7 +35,10 @@ import { RapportEndOfModuleComponent } from './rapport-end-of-module/rapport-end
     ReactiveFormsModule,
     RouterModule
   ],
-  entryComponents: [TeamNotitiesDialogComponent],
+  entryComponents: [
+    TeamNotitiesDialogComponent,
+    ConfirmationDialogComponent
+  ],
   exports: [
     ModuleInstanceViewComponent,
     BestellingViewComponent,

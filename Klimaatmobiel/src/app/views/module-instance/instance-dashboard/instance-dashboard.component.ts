@@ -3,6 +3,8 @@ import { ModuleInstance } from 'src/app/models/module-instance';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ModuleInstanceStatus } from 'src/app/models/module-instance-status';
 import { DataService } from 'src/app/services/data.service';
+import { MatDialogConfig, MatDialog} from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component'
 
 import { MatSnackBar } from '@angular/material';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -24,6 +26,7 @@ export class InstanceDashboardComponent implements OnInit {
     private _router: Router,
     private _dataService: DataService,
     private _snackBar: MatSnackBar,
+    public dialog: MatDialog,
     public route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -41,17 +44,36 @@ export class InstanceDashboardComponent implements OnInit {
   completeModule() {
     this.pauseTimer();
     this.moduleInstance.moduleInstanceStatus = ModuleInstanceStatus.COMPLETED;
-    this.export();
+    this.openDialog("Wil je de huidige stand van de teams exporteren naar pdf?")
   }
 
   cancelModule() {
     this.pauseTimer();
     this.moduleInstance.moduleInstanceStatus = ModuleInstanceStatus.CANCELLED;
-    this.export();
+    this.openDialog("Wil je voor je het verwijderd deze module exporteren naar pdf?")
   }
 
   exportModule(){
     this.export();
+  }
+
+  openDialog(msg: string){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '350px'
+
+    dialogConfig.data = {
+      message: msg
+    };
+
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        console.log('Ja');
+        this.export()
+      }
+    });
   }
 
   export(){

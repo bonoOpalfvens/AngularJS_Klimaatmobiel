@@ -124,7 +124,7 @@ export class RapportEndOfModuleComponent implements OnInit {
           ],
           ...moduleInstance.teams.map(t => {
             console.log(t.notities)
-            return [t.teamNaam, t.budget, t.notities ? t.notities : 'Geen commentaren zijn toegevoegd voor dit team' ]
+            return [t.teamNaam, t.budget, t.notities ? t.notities : 'Geen commentaar is toegevoegd voor dit team.' ]
           })
         ]
       }

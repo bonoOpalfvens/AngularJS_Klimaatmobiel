@@ -4,6 +4,7 @@ import { DataService } from 'src/app/services/data.service';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { TeamNotitiesDialogComponent } from '../team-notities-dialog/team-notities-dialog.component';
 import { BestellingStatus } from 'src/app/models/bestelling-status';
+import { BestellingListComponent } from '../bestelling-list/bestelling-list.component';
 
 @Component({
         selector: 'app-team-view',
@@ -51,6 +52,18 @@ export class TeamViewComponent implements OnInit {
                                         .subscribe();
                         }
                 });
+        }
+
+        checkBestellingen() {
+                const dialogConfig = new MatDialogConfig();
+
+                dialogConfig.disableClose = false;
+
+                dialogConfig.data = {
+                        bestellingen: this.team.bestellingen, team: this.team
+                };
+
+                const dialogRef = this.dialog.open(BestellingListComponent, dialogConfig);
         }
 
         get pendingLength(): number {

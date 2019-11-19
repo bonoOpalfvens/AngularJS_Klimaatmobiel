@@ -1,22 +1,22 @@
 <mat-toolbar>
-        <h1 style="margin-right: 10px;">{{moduleInstance.klimModule.moduleNaam}}</h1>
-        <span>{{timeString}}</span>
+  <h1 style="margin-right: 10px;">{{moduleInstance.klimModule.moduleNaam}}</h1>
+  <span>{{timeString}}</span>
 </mat-toolbar>
 <div class="container">
-        <mat-card>
-                <button (click)='startModule()' [disabled]="!startable" mat-button color="primary">
-                        <i class="material-icons">play_circle_outline</i> Start</button>
-                <button (click)='completeModule()' [disabled]="!endable" mat-button color="hint">
-                        <i class="material-icons">stop</i> Stop</button>
-                <button (click)='exportModule()' mat-button color="go_magenta">
-                        <i class="material-icons">share</i>Exporteer</button>
-                <button (click)='cancelModule()' mat-button color="warn">
-                        <i class="material-icons">delete_forever</i> Verwijder</button>
-                <button (click)='createTeam()' mat-button style="float:right">
-                        <i class="material-icons">group_add</i> Add team</button>
-        </mat-card>
-        <app-team-list [teams]="moduleInstance.teams"></app-team-list>
+  <mat-card>
+    <button (click)='startModule()' [disabled]="!startable" mat-button color="primary">
+            <i class="material-icons">play_circle_outline</i> Start</button>
+    <button (click)='completeModule()' [disabled]="!endable" mat-button color="hint">
+            <i class="material-icons">stop</i> Stop</button>
+    <button (click)='exportModule()' mat-button color="go_magenta">
+            <i class="material-icons">share</i> Exporteer</button>
+    <button (click)='cancelModule()' mat-button color="warn">
+            <i class="material-icons">delete_forever</i> Verwijder</button>
+    <button (click)='createTeam()' mat-button style="float:right">
+            <i class="material-icons">group_add</i> Add team</button>
+   </mat-card>
+   <app-team-list [teams]="moduleInstance.teams"></app-team-list>
 </div>
 <div class="codeOverlay">
-        {{moduleInstance.code}}
+  {{moduleInstance.code}}
 </div>

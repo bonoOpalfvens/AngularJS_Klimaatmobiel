@@ -40,11 +40,11 @@ export class Bestelling {
         return this._orderLines;
     }
 
-    get statusString(): string {
-        return BestellingStatus[this._bestellingStatus];
-    }
-
     get prijs(): number {
         return this._prijs;
+    }
+
+    set bestellingStatus(status: BestellingStatus) {
+        this._bestellingStatus = status;
     }
 }

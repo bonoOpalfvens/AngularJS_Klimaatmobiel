@@ -29,6 +29,7 @@ export class ModuleInstance {
         inst._bestellingen = json.bestellingen.map(Bestelling.fromJSON);
         inst._startDatum = json.startDatum;
         inst._eindDatum = json.eindDatum;
+        inst._code = json.code;
         return inst;
     }
 
@@ -94,5 +95,8 @@ export class ModuleInstance {
 
     set klimModule(val: KlimModule) {
         this._klimModule = val;
+    }
+    get code() {
+        return this._code;
     }
 }

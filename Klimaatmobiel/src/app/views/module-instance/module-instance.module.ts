@@ -37,6 +37,11 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
   ],
   entryComponents: [
     TeamNotitiesDialogComponent,
+    
+  ],
+  entryComponents: [
+    TeamNotitiesDialogComponent,
+    BestellingListComponent, 
     ConfirmationDialogComponent
   ],
   exports: [

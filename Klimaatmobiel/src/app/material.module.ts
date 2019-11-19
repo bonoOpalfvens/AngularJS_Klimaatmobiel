@@ -25,7 +25,6 @@ import {
   declarations: [],
   imports: [
     CommonModule,
-
     // AngularMaterialAnimations
     BrowserAnimationsModule,
     // AngularMaterial

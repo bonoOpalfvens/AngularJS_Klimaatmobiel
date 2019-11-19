@@ -19,14 +19,14 @@
                         <i class="material-icons">
                         print
                         </i><span> Print PDF</span></button>
-                <button (click)="reload()" mat-button color="primary">
+                <button id='loadButton' (click)="reload()" mat-button color="primary">
                         <i class="material-icons">
                         refresh
                         </i><span> Herlaad voorvertoning</span></button>
         </mat-card> 
         <div style="margin-top: 10px;">       
                 <mat-card>
-                        <mat-card-title style="margin-bottom: 12px;">Voorvertoning van PDF</mat-card-title>
+                        <mat-card-title style="margin-bottom: 12px;">Voorvertoning van het rapport</mat-card-title>                    
                         <div id='iframeContainer' style="height: 720px; align-self: auto;">
                         </div>
                 </mat-card>

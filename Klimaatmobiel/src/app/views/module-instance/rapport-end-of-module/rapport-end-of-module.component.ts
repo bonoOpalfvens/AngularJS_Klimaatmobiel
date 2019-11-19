@@ -18,8 +18,8 @@ export class RapportEndOfModuleComponent implements OnInit {
   public moduleInstance: ModuleInstance;
 
   constructor(
-    private _location: Location,
-    private route: ActivatedRoute, 
+    private _location: Location, 
+    private route: ActivatedRoute,
     private scriptService: ScriptService) {
       console.log('Loading External Scripts');
       this.scriptService.load('pdfMake', 'vfsFonts');
@@ -28,9 +28,9 @@ export class RapportEndOfModuleComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe(item =>
       this.moduleInstance = item.moduleInstance
-    );
+    )
     console.log(this.moduleInstance);
-    this.placePdfInPage()
+    this.reload()
   }
 
   placePdfInPage(){
@@ -39,7 +39,7 @@ export class RapportEndOfModuleComponent implements OnInit {
       const targetElem = document.querySelector('#iframeContainer')
       const iframe = document.createElement('iframe');
       iframe.src = dataUrl;
-      iframe.style.width = '1200px';
+      iframe.style.width = '1100px';
       iframe.style.height = '700px';
       iframe.style.textAlign = 'center';
       targetElem.appendChild(iframe);
@@ -58,7 +58,7 @@ export class RapportEndOfModuleComponent implements OnInit {
 
     switch (action) {
       case 'open': pdfMake.createPdf(documentDefinition).open(); break;
-      case 'print': pdfMake.createPdf(documentDefinition).print(); break;
+      case 'print': pdfMake.createPdf(documentDefinition).print({}, window); break;
       case 'download': pdfMake.createPdf(documentDefinition).download(); break;
 
       default: pdfMake.createPdf(documentDefinition).open(); break;
@@ -98,7 +98,7 @@ export class RapportEndOfModuleComponent implements OnInit {
   getTeamInfoObject(moduleInstance: ModuleInstance){
     return {
       table: {
-        widths: ['*','*', 400],
+        widths: ['*','*', 520],
         body: [
           [{
             text: 'Naam',

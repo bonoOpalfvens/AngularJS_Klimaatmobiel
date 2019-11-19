@@ -55,18 +55,7 @@ export class InstanceDashboardComponent implements OnInit {
   }
 
   export(){
-    this._dataService.postModuleInstance(this.moduleInstance)
-      .subscribe(
-        val => {
-          if(val){
-            this._router.navigate(['ModuleInstance/Dashboard/'.concat(JSON.parse(val).moduleInstanceId).concat('/CreateRapport')]);
-            this._snackBar.open('Succes!', 'Sluit', {duration: 3000});
-          }
-        },
-        (err: HttpErrorResponse) => {
-          this._snackBar.open('Er was een probleem bij het exporteren van de module.', 'Sluit', {duration: 15000});
-        }
-      );
+    this._router.navigate(['ModuleInstance/Dashboard/' + this.moduleInstance.id + '/CreateRapport']);
   }
 
   startTimer() {

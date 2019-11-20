@@ -33,7 +33,7 @@ import { TeamBudgetDialogComponent } from './team-budget-dialog/team-budget-dial
     ReactiveFormsModule,
     RouterModule
   ],
-  entryComponents: [TeamNotitiesDialogComponent, TeamBudgetDialogComponent],
+  entryComponents: [TeamNotitiesDialogComponent, TeamBudgetDialogComponent, BestellingListComponent],
   exports: [
     ModuleInstanceViewComponent,
     BestellingViewComponent,

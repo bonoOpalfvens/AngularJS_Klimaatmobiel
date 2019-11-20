@@ -1,5 +1,18 @@
 <mat-card>
   <p>totaal: €{{bestelling.prijs}}</p>
-  <p>status: {{bestelling.statusString}}</p>
-  <app-order-line-view *ngFor="let orderLine of bestelling.orderLines" [orderLine]="orderLine"></app-order-line-view>
+  <ul style="padding-bottom:0;">
+    <li *ngFor="let orderLine of bestelling.orderLines">
+      <app-order-line-view [orderLine]="orderLine"></app-order-line-view>
+    </li>
+  </ul>
+  <mat-card-actions style="padding:0;margin:0;" *ngIf="bestelling.bestellingStatus == bestellingStatus.PENDING">
+    <button mat-raised-button (click)="acceptOrder()">Accept</button>
+    <button mat-raised-button (click)="declineOrder()">Decline</button>
+  </mat-card-actions>
+  <mat-icon class="icon" style="color:#007E33;" *ngIf="bestelling.bestellingStatus == bestellingStatus.ACCEPTED">
+    check_circle_outline</mat-icon>
+  <mat-icon class="icon" style="color: #FF8800;" *ngIf="bestelling.bestellingStatus == bestellingStatus.PENDING">
+    notifications</mat-icon>
+  <mat-icon class="icon" style="color:#CC0000;" *ngIf="bestelling.bestellingStatus == bestellingStatus.REJECTED">
+    highlight_off</mat-icon>
 </mat-card>

@@ -72,7 +72,7 @@ export class TeamViewComponent implements OnInit {
                                 this._dataService.putTeam(this.team).subscribe();
                         }
                 })
-
+        }
         checkBestellingen() {
                 const dialogConfig = new MatDialogConfig();
 

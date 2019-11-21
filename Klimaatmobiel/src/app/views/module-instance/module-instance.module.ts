@@ -38,10 +38,6 @@ import { TeamBudgetDialogComponent } from './team-budget-dialog/team-budget-dial
   ],
   entryComponents: [
     TeamNotitiesDialogComponent,
-    
-  ],
-  entryComponents: [
-    TeamNotitiesDialogComponent,
     TeamBudgetDialogComponent,
     BestellingListComponent, 
     ConfirmationDialogComponent

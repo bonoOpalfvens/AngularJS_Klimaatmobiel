@@ -14,6 +14,7 @@ import { OrderLineViewComponent } from './order-line-view/order-line-view.compon
 import { TeamNotitiesDialogComponent } from './team-notities-dialog/team-notities-dialog.component';
 import { RapportEndOfModuleComponent } from './rapport-end-of-module/rapport-end-of-module.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { TeamBudgetDialogComponent } from './team-budget-dialog/team-budget-dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +28,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     OrderLineViewComponent,
     TeamNotitiesDialogComponent,
     RapportEndOfModuleComponent,
-    ConfirmationDialogComponent],
-
+    ConfirmationDialogComponent,
+    TeamBudgetDialogComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -41,6 +42,7 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
   ],
   entryComponents: [
     TeamNotitiesDialogComponent,
+    TeamBudgetDialogComponent,
     BestellingListComponent, 
     ConfirmationDialogComponent
   ],
@@ -52,7 +54,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     InstanceDashboardComponent,
     TeamListComponent,
     TeamViewComponent,
-    TeamNotitiesDialogComponent
+    TeamNotitiesDialogComponent,
+    TeamBudgetDialogComponent
   ]
 })
 export class ModuleInstanceModule { }

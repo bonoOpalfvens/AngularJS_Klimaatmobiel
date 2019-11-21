@@ -1,6 +1,9 @@
 button[color="primary"] {
     color: var(--text-green);
 }
+button[color="go_magenta"] {
+    color: var(--go-magenta);
+}
 span{
     position: relative;
     width: calc(100% - 200px);

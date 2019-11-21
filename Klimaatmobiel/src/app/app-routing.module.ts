@@ -9,6 +9,7 @@ import { KlimModuleEditComponent } from './views/klim-module/klim-module-edit/kl
 import { ModuleGuard } from './guards/module.guard';
 import { InstanceDashboardComponent } from './views/module-instance/instance-dashboard/instance-dashboard.component';
 import { ModuleInstanceGuard } from './guards/module-instance.guard';
+import { RapportEndOfModuleComponent } from './views/module-instance/rapport-end-of-module/rapport-end-of-module.component';
 
 const routes: Routes = [
   { path: 'User/Login', component: LoginComponent },
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'ModuleInstance/Dashboard/:id', component: InstanceDashboardComponent,
     canActivate: [AuthGuard], resolve: { moduleInstance: ModuleInstanceGuard }
+  },
+  { 
+    path: 'ModuleInstance/Dashboard/:id/CreateRapport', component: RapportEndOfModuleComponent, 
+    canActivate: [AuthGuard], resolve: {moduleInstance: ModuleInstanceGuard }
   },
 
   { path: '', redirectTo: 'User/Login', pathMatch: 'full' },

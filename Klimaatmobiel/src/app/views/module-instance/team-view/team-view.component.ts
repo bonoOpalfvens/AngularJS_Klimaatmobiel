@@ -41,7 +41,7 @@ export class TeamViewComponent implements OnInit {
 
                 dialogConfig.disableClose = true;
                 dialogConfig.autoFocus = true;
-
+                
                 dialogConfig.data = {
                         notities: this.team.notities
                 };

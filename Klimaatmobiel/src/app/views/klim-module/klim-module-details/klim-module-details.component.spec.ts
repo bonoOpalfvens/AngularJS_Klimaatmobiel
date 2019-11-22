@@ -1,3 +1,4 @@
+import { AddMateriaalComponent } from './../add-materiaal/add-materiaal.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { KlimModuleDetailsComponent } from './klim-module-details.component';
@@ -27,12 +28,11 @@ describe('KlimModuleDetailsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(KlimModuleDetailsComponent);
     component = fixture.componentInstance;
+    component.module = new KlimModule("", 200, 200, "", []);
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    component.module = new KlimModule("", 200, 200, "", []);
-    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });

@@ -1,8 +1,12 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { KlimModuleViewComponent } from './../klim-module-view/klim-module-view.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { KlimModuleListComponent } from './klim-module-list.component';
 import { MaterialModule } from 'src/app/material.module';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router, ActivatedRoute } from '@angular/router';
+import { ModuleFilterPipe } from 'src/app/pipes/module-filter.pipe';
+import { ModuleInstanceModule } from '../../module-instance/module-instance.module';
 
 describe('KlimModuleListComponent', () => {
   let component: KlimModuleListComponent;
@@ -10,8 +14,12 @@ describe('KlimModuleListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ KlimModuleListComponent ],
-      imports: [MaterialModule, RouterModule]
+      declarations: [ KlimModuleListComponent, ModuleFilterPipe, KlimModuleViewComponent ],
+      imports: [MaterialModule, RouterModule, ModuleInstanceModule, HttpClientTestingModule],
+      providers: [
+        {provide: Router, valueOf: {}},
+        {provide: ActivatedRoute, valueOf: {}}
+      ]
     })
     .compileComponents();
   }));

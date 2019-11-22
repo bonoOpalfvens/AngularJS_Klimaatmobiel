@@ -1,3 +1,4 @@
+import { KlimModule } from 'src/app/models/klim-module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { KlimModuleDetailsComponent } from './../klim-module-details/klim-module-details.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -6,7 +7,8 @@ import { KlimModuleEditComponent } from './klim-module-edit.component';
 import { MaterialModule } from 'src/app/material.module';
 import { RouterModule, Router, ActivatedRoute } from '@angular/router';
 import { MatDialogRef } from '@angular/material';
-import { HttpClient } from 'selenium-webdriver/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { of } from 'rxjs';
 
 describe('KlimModuleEditComponent', () => {
   let component: KlimModuleEditComponent;
@@ -15,12 +17,13 @@ describe('KlimModuleEditComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ KlimModuleEditComponent, KlimModuleDetailsComponent ],
-      imports: [MaterialModule, ReactiveFormsModule, RouterModule],
+      imports: [MaterialModule, ReactiveFormsModule, RouterModule, HttpClientTestingModule],
       providers: [
         {provide: MatDialogRef, useValue: {}},
         {provide: Router, useValue: {}},
-        {provide: HttpClient, useValue: {}},
-        {provide: ActivatedRoute, useValue: {}}
+        {provide: ActivatedRoute, useValue: {
+          data: of(new KlimModule(undefined, undefined, undefined, undefined, []))
+        }}
       ]
     })
     .compileComponents();

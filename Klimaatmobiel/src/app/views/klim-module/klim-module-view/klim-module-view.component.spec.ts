@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -13,9 +14,8 @@ describe('KlimModuleViewComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ KlimModuleViewComponent ],
-      imports: [MaterialModule, RouterModule],
+      imports: [MaterialModule, RouterModule, HttpClientTestingModule],
       providers: [
-        {provide: HttpClient, useValue: {}},
         {provide: Router, useValue: {}},
         {provide: ActivatedRoute, useValue: {}}
       ]
@@ -26,11 +26,11 @@ describe('KlimModuleViewComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(KlimModuleViewComponent);
     component = fixture.componentInstance;
+    component.klimModule = new KlimModule("", 200, 200, "", []);
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    component.klimModule = new KlimModule("", 200, 200, "", []);
     expect(component).toBeTruthy();
   });
 });

@@ -22,7 +22,7 @@ describe('KlimModuleEditComponent', () => {
         {provide: MatDialogRef, useValue: {}},
         {provide: Router, useValue: {}},
         {provide: ActivatedRoute, useValue: {
-          data: of(new KlimModule(undefined, undefined, undefined, undefined, []))
+          data: of({module: new KlimModule(undefined, undefined, undefined, undefined, [])})
         }}
       ]
     })
@@ -32,6 +32,7 @@ describe('KlimModuleEditComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(KlimModuleEditComponent);
     component = fixture.componentInstance;
+    component.module = new KlimModule(undefined, undefined, undefined, undefined, []);
     fixture.detectChanges();
   });
 

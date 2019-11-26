@@ -1,6 +1,9 @@
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TeamNotitiesDialogComponent } from './team-notities-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from 'src/app/material.module';
 
 describe('TeamNotitiesDialogComponent', () => {
   let component: TeamNotitiesDialogComponent;
@@ -8,7 +11,12 @@ describe('TeamNotitiesDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TeamNotitiesDialogComponent ]
+      declarations: [ TeamNotitiesDialogComponent ],
+      imports: [ReactiveFormsModule, MaterialModule],
+      providers: [
+        {provide: MAT_DIALOG_DATA, useValue: {}},
+        {provide: MatDialogRef, useValue: {}}
+      ]
     })
     .compileComponents();
   }));

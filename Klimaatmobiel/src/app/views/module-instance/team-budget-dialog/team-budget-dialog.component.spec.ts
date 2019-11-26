@@ -1,6 +1,9 @@
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TeamBudgetDialogComponent } from './team-budget-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from 'src/app/material.module';
 
 describe('TeamBudgetDialogComponent', () => {
   let component: TeamBudgetDialogComponent;
@@ -8,7 +11,12 @@ describe('TeamBudgetDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TeamBudgetDialogComponent ]
+      declarations: [ TeamBudgetDialogComponent ],
+      imports: [ReactiveFormsModule, MaterialModule],
+      providers: [
+        {provide: MAT_DIALOG_DATA, useValue: {}},
+        {provide: MatDialogRef, useValue: {}}
+      ]
     })
     .compileComponents();
   }));

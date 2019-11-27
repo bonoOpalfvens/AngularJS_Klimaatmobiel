@@ -1,7 +1,12 @@
 <mat-dialog-content>
 
   <form [formGroup]="materiaalForm" (ngSubmit)="onSubmit()">
-    <input type="file" (change)="onFileChanged($event)" required />
+    <mat-form-field>
+      <mat-label>
+        <mat-icon>insert_photo</mat-icon> Url afbeelding
+      </mat-label>
+      <input matInput aria-label="icoon" formControlName="icoon" required />
+    </mat-form-field>
 
     <mat-form-field>
       <mat-label>

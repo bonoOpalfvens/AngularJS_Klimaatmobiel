@@ -1,15 +1,18 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { DrawerComponent } from './views/navigation/drawer/drawer.component';
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { MaterialModule } from './material.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule, MaterialModule, HttpClientTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent, DrawerComponent
       ],
     }).compileComponents();
   }));

@@ -5,7 +5,8 @@ import { RegisterComponent } from './register.component';
 import { MaterialModule } from 'src/app/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Router, ActivatedRoute } from '@angular/router';
-import { LocationStrategy } from '@angular/common';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -13,12 +14,10 @@ describe('RegisterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MaterialModule, ReactiveFormsModule, RouterModule, HttpClientTestingModule],
+      imports: [MaterialModule, ReactiveFormsModule, RouterTestingModule, HttpClientTestingModule],
       declarations: [ RegisterComponent ],
       providers: [
-        {provide: Router, useValue: {}},
-        {provide: ActivatedRoute, useValue: {}},
-        {provide: LocationStrategy, useValue: {}}
+        {provide: LocationStrategy, useClass: PathLocationStrategy}
       ]
     })
     .compileComponents();

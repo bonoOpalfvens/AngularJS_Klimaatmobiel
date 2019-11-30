@@ -19,10 +19,10 @@
                         <i class="material-icons">
                         print
                         </i><span> Print PDF</span></button>
-                <button id='loadButton' (click)="reload()" mat-button color="primary">
+                <button id='loadButton' (click)="load()" [disabled]="!loadable" mat-button color="primary">
                         <i class="material-icons">
                         refresh
-                        </i><span> Herlaad voorvertoning</span></button>
+                        </i><span> Laad voorvertoning</span></button>
         </mat-card> 
         <div style="margin-top: 10px;">       
                 <mat-card>

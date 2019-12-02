@@ -6,14 +6,14 @@ Made by: Abdullah Sertkaya, Bono Opalfvens, Jonas Baert, Joren Debois and Nathan
 
 ## Features
 
-Overview of modules with their corresponding shops.
-Adding/removing modules.
-Overview of module sessions.
-Starting module sessions.
-Adding/removing materials to shops of each module.
-History of previously completed module sessions.
-Statistics of completed modules.
-Possibility to generate a rapport in pdf.
+- Overview of modules with their corresponding shops.
+- Adding/removing modules.
+- Overview of module sessions.
+- Starting module sessions.
+- Adding/removing materials to shops of each module.
+- History of previously completed module sessions.
+- Statistics of completed modules.
+- Possibility to generate a rapport in pdf.
 
 Frontend
 --

@@ -2,10 +2,10 @@
   <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
     <mat-form-field style="width: 100%;">
       <mat-label>
-        <mat-icon>account_balance</mat-icon> Notities
+        <mat-icon>account_balance</mat-icon> Notities & commentaar
       </mat-label>
-      <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="10"
-        cdkAutosizeMaxRows="15" aria-label="notities" type="text" formControlName="notities"></textarea>
+      <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="15"
+        cdkAutosizeMaxRows="20" aria-label="notities" type="text" formControlName="notities"></textarea>
     </mat-form-field>
     <mat-error *ngIf="teamForm.get('notities').errors">
     </mat-error>

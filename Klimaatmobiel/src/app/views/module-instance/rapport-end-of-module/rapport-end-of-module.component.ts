@@ -30,7 +30,7 @@ export class RapportEndOfModuleComponent implements OnInit {
       this.moduleInstance = item.moduleInstance
     )
     console.log(this.moduleInstance);
-    this.reload()
+    this.load()
   }
 
   placePdfInPage(){
@@ -46,10 +46,14 @@ export class RapportEndOfModuleComponent implements OnInit {
     });
   }
 
-  reload(){
+  load(){
     if(!document.querySelector("iframe")){
-      this.placePdfInPage()
-    }
+      this.placePdfInPage();
+    }   
+  }
+
+  get loadable(): boolean{
+    return !document.querySelector("iframe");
   }
 
   generatePdf(action = 'open') {
@@ -58,7 +62,7 @@ export class RapportEndOfModuleComponent implements OnInit {
 
     switch (action) {
       case 'open': pdfMake.createPdf(documentDefinition).open(); break;
-      case 'print': pdfMake.createPdf(documentDefinition).print({}, window); break;
+      case 'print': pdfMake.createPdf(documentDefinition).print(); break;
       case 'download': pdfMake.createPdf(documentDefinition).download(); break;
 
       default: pdfMake.createPdf(documentDefinition).open(); break;
@@ -77,7 +81,7 @@ export class RapportEndOfModuleComponent implements OnInit {
           margin: [0, 0, 0, 20]
         },
         {
-          text: 'Hieronder wordt per team een overzicht weergegeven van het huidige budget en de commentaren.',
+          text: 'Hieronder wordt per team een overzicht weergegeven van het huidige budget en de notities/commentaren.',
           margin: [0, 0, 0, 20]
         },
         {
@@ -115,7 +119,7 @@ export class RapportEndOfModuleComponent implements OnInit {
             margin: [0, 5, 0, 5]
           },
           {
-            text: 'Commentaar',
+            text: 'Notities/commentaar',
             style: 'tableHeader',
             bold: true,
             alignment: 'center',
@@ -124,7 +128,7 @@ export class RapportEndOfModuleComponent implements OnInit {
           ],
           ...moduleInstance.teams.map(t => {
             console.log(t.notities)
-            return [t.teamNaam, t.budget, t.notities ? t.notities : 'Geen commentaar is toegevoegd voor dit team.' ]
+            return [t.teamNaam, t.budget, t.notities ? t.notities : 'Geen notities of commentaar is toegevoegd voor dit team.' ]
           })
         ]
       }

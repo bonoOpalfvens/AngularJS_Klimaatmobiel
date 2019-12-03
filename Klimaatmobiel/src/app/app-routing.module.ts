@@ -11,7 +11,7 @@ import { InstanceDashboardComponent } from './views/module-instance/instance-das
 import { ModuleInstanceGuard } from './guards/module-instance.guard';
 import { RapportEndOfModuleComponent } from './views/module-instance/rapport-end-of-module/rapport-end-of-module.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: 'User/Login', component: LoginComponent },
   { path: 'User/Register', component: RegisterComponent },
 

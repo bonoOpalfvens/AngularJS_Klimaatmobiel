@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddEigenschapComponent } from './add-eigenschap.component';
+import { MaterialModule } from 'src/app/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogRef } from '@angular/material';
 
 describe('AddEigenschapComponent', () => {
   let component: AddEigenschapComponent;
@@ -8,7 +11,9 @@ describe('AddEigenschapComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddEigenschapComponent ]
+      declarations: [ AddEigenschapComponent ],
+      imports: [MaterialModule, ReactiveFormsModule],
+      providers: [{provide: MatDialogRef, useValue: {}}]
     })
     .compileComponents();
   }));

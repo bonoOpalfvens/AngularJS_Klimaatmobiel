@@ -80,7 +80,7 @@ export class TeamViewComponent implements OnInit {
                 dialogConfig.disableClose = false;
 
                 dialogConfig.data = {
-                        bestellingen: this.team.bestellingen, team: this.team
+                        team: this.team
                 };
 
                 const dialogRef = this.dialog.open(BestellingListComponent, dialogConfig);

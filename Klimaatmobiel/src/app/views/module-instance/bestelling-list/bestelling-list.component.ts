@@ -10,11 +10,9 @@ import { Team } from 'src/app/models/team';
 })
 export class BestellingListComponent implements OnInit {
 
-  public bestellingen: Bestelling[]
   public team: Team;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
-    this.bestellingen = data.bestellingen;
     this.team = data.team;
   }
 

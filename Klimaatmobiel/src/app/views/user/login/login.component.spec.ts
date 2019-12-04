@@ -94,7 +94,6 @@ describe('LoginComponent', () => {
     const errorMsg = fixture.debugElement.nativeElement.querySelector('#emailError');
     console.log(errorMsg);
     expect(errorMsg).toBeDefined();
-    // expect(errorMsg.innerHTML).toContain('Field is required');
   })
 
 });

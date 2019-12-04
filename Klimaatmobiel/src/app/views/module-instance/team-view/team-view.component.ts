@@ -41,7 +41,7 @@ export class TeamViewComponent implements OnInit {
 
                 dialogConfig.disableClose = true;
                 dialogConfig.autoFocus = true;
-
+                
                 dialogConfig.data = {
                         notities: this.team.notities
                 };
@@ -73,14 +73,14 @@ export class TeamViewComponent implements OnInit {
                         }
                 })
         }
-
+  
         checkBestellingen() {
                 const dialogConfig = new MatDialogConfig();
 
                 dialogConfig.disableClose = false;
 
                 dialogConfig.data = {
-                        bestellingen: this.team.bestellingen, team: this.team
+                        team: this.team
                 };
 
                 const dialogRef = this.dialog.open(BestellingListComponent, dialogConfig);

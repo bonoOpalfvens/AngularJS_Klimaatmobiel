@@ -24,13 +24,13 @@ export class BestellingViewComponent implements OnInit {
   }
 
   acceptOrder() {
-    this.bestelling.bestellingStatus = BestellingStatus.ACCEPTED;
+    this.team.bestellingen.find(b => b.id == this.bestelling.id).bestellingStatus = BestellingStatus.ACCEPTED;
     console.log(this.team);
     this._dataService.putTeam(this.team);
   }
 
   declineOrder() {
-    this.bestelling.bestellingStatus = BestellingStatus.REJECTED;
+    this.team.bestellingen.find(b => b.id == this.bestelling.id).bestellingStatus = BestellingStatus.REJECTED;
     this._dataService.putTeam(this.team);
   }
 }

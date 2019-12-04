@@ -34,6 +34,7 @@ export class AddMateriaalComponent implements OnInit {
         naam: [this.materiaal.naam, [Validators.required]],
         eenheid: [this.eenheidToVal(this.materiaal.eenheid), [Validators.required]],
         prijs: [this.materiaal.prijs, [Validators.required, Validators.min(0)]],
+        klimaatScore: [this.materiaal.klimaatScore, [Validators.required]],
         omschrijving: [this.materiaal.omschrijving, [Validators.required]]
       });
 
@@ -43,6 +44,7 @@ export class AddMateriaalComponent implements OnInit {
         naam: ['', [Validators.required]],
         eenheid: ['-1', [Validators.required]],
         prijs: ['', [Validators.required, Validators.min(0)]],
+        klimaatScore: ['', [Validators.required]],
         omschrijving: ['', [Validators.required]]
       });
     }
@@ -60,7 +62,8 @@ export class AddMateriaalComponent implements OnInit {
       this.base64,
       this.materiaalForm.value.naam,
       this.materiaalForm.value.omschrijving,
-      this.materiaalForm.value.prijs);
+      this.materiaalForm.value.prijs,
+      this.materiaalForm.value.klimaatScore);
     mat.eenheid = this.toEenheid(this.materiaalForm.value.eenheid);
     console.log(mat);
 

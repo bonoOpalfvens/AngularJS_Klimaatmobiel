@@ -1,17 +1,23 @@
 mat-form-field {
-    width: 100%;
+  width: 100%;
 }
+
 #eenheid {
-    width: 10%;
+  width: 15%;
 }
+
 #prijs {
-    width: 89%;
-    float: right;
+  width: 35%;
 }
+
+#klimaatScore {
+  width: 45%;
+}
+
 mat-icon {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 button[color="primary"] {
-    background-color: var(--text-green);
+  background-color: var(--text-green);
 }

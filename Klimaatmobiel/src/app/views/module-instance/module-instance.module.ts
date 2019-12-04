@@ -12,6 +12,8 @@ import { TeamListComponent } from './team-list/team-list.component';
 import { TeamViewComponent } from './team-view/team-view.component';
 import { OrderLineViewComponent } from './order-line-view/order-line-view.component';
 import { TeamNotitiesDialogComponent } from './team-notities-dialog/team-notities-dialog.component';
+import { RapportEndOfModuleComponent } from './rapport-end-of-module/rapport-end-of-module.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { TeamBudgetDialogComponent } from './team-budget-dialog/team-budget-dialog.component';
 
 @NgModule({
@@ -25,15 +27,21 @@ import { TeamBudgetDialogComponent } from './team-budget-dialog/team-budget-dial
     TeamViewComponent,
     OrderLineViewComponent,
     TeamNotitiesDialogComponent,
+    RapportEndOfModuleComponent,
+    ConfirmationDialogComponent,
     TeamBudgetDialogComponent],
-
   imports: [
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
     RouterModule
   ],
-  entryComponents: [TeamNotitiesDialogComponent, TeamBudgetDialogComponent, BestellingListComponent],
+  entryComponents: [
+    TeamNotitiesDialogComponent,
+    TeamBudgetDialogComponent,
+    BestellingListComponent, 
+    ConfirmationDialogComponent
+  ],
   exports: [
     ModuleInstanceViewComponent,
     BestellingViewComponent,

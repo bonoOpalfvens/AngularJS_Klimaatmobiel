@@ -86,12 +86,22 @@ export class DataService {
     );
   }
 
+  
+
   registerUser(email: string, firstName: string, lastName: string, school: number, password: string, confirmPassword: string): any {
     return this.http.post(
       `${environment.apiUrl}/Account/register`,
       { firstName, lastName, passwordConfirmation: confirmPassword, schoolId: school, email, password },
       { responseType: 'text' }
     );
+  }
+
+  changeUser(email: string, firstName: string, lastName: string, school: number, password: string, confirmPassword: string): any{
+    return this.http.put(
+      `${environment.apiUrl}/Account/change`,
+      { firstName, lastName, schoolId: school, email, password, passwordConfirmation: confirmPassword },
+      {responseType: 'text' }
+    )
   }
 
   loginUser(email: string, password: string): any {

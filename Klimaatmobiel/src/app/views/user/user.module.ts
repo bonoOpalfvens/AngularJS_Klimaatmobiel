@@ -5,9 +5,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../../material.module';
 import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
+import { PersonalInfoComponent } from './personal-info/personal-info.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, PersonalInfoComponent],
   imports: [
     CommonModule,
     MaterialModule,

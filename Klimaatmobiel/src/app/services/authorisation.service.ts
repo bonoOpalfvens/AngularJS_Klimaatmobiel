@@ -58,6 +58,26 @@ export class AuthorisationService {
     );
   }
 
+  change(email: string,
+    firstName: string,
+    lastName: string,
+    school: number,
+    password: string,
+    confirmPassword: string
+    ): Observable<boolean> {
+      return this.dataService.changeUser(email, firstName, lastName, school, password, confirmPassword).pipe(
+        map((token: any) => {
+          if (token) {
+            localStorage.setItem(this.tokenKey, token);
+            localStorage.setItem(this.emailKey, email);
+            this._user$.next(email);
+            return true;
+          }
+          return false;
+        })
+      );
+    }
+
   login(email: string, password: string): Observable<boolean> {
     return this.dataService.loginUser(email, password).pipe(
       map((token: any) => {

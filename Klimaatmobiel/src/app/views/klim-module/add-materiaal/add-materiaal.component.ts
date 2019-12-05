@@ -1,10 +1,7 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
-import { Observable, of } from 'rxjs';
 import { Materiaal } from 'src/app/models/materiaal';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
-import { Eigenschap } from 'src/app/models/eigenschap';
-import { AddEigenschapComponent } from '../add-eigenschap/add-eigenschap.component';
 import { Eenheid } from 'src/app/models/eenheid';
 
 @Component({
@@ -14,8 +11,6 @@ import { Eenheid } from 'src/app/models/eenheid';
 })
 export class AddMateriaalComponent implements OnInit {
   @Input() materiaal: Materiaal;
-
-  private base64: any;
 
   // tslint:disable-next-line: variable-name
   private _file: File;
@@ -31,16 +26,16 @@ export class AddMateriaalComponent implements OnInit {
   ngOnInit() {
     if (this.materiaal) {
       this.materiaalForm = this._fb.group({
+        icoon: [this.materiaal.icoon, [Validators.required]],
         naam: [this.materiaal.naam, [Validators.required]],
         eenheid: [this.eenheidToVal(this.materiaal.eenheid), [Validators.required]],
         prijs: [this.materiaal.prijs, [Validators.required, Validators.min(0)]],
         klimaatScore: [this.materiaal.klimaatScore, [Validators.required]],
         omschrijving: [this.materiaal.omschrijving, [Validators.required]]
       });
-
-      this.base64 = this.materiaal.icoon;
     } else {
       this.materiaalForm = this._fb.group({
+        icoon: ['', [Validators.required]],
         naam: ['', [Validators.required]],
         eenheid: ['-1', [Validators.required]],
         prijs: ['', [Validators.required, Validators.min(0)]],
@@ -55,11 +50,8 @@ export class AddMateriaalComponent implements OnInit {
   }
 
   async onSubmit() {
-    if (this._file) {
-      this.base64 = await toBase64(this._file);
-    }
     const mat: Materiaal = new Materiaal(
-      this.base64,
+      this.materiaalForm.value.icoon,
       this.materiaalForm.value.naam,
       this.materiaalForm.value.omschrijving,
       this.materiaalForm.value.prijs,
@@ -87,12 +79,3 @@ export class AddMateriaalComponent implements OnInit {
     }
   }
 }
-
-
-
-const toBase64 = file => new Promise((resolve, reject) => {
-  const reader = new FileReader();
-  reader.readAsDataURL(file);
-  reader.onload = () => resolve(reader.result);
-  reader.onerror = error => reject(error);
-});

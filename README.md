@@ -7,13 +7,16 @@ Made by: Abdullah Sertkaya, Bono Opalfvens, Jonas Baert, Joren Debois and Nathan
 ## Features
 
 - Overview of modules with their corresponding shops.
-- Adding/removing modules.
-- Overview of module sessions.
+- Adding/removing or changing modules.
+- Overview of module sessions with all teams.
 - Starting module sessions.
-- Adding/removing materials to shops of each module.
+- Adding/removing or changing materials to shops of each module.
 - History of previously completed module sessions.
 - Statistics of completed modules.
 - Possibility to generate a rapport in pdf.
+- Checking the orders from each team.
+- Adding comments to each team individually
+- Change budget from a team
 
 Frontend
 --

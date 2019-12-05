@@ -73,7 +73,7 @@ export class TeamViewComponent implements OnInit {
                         }
                 })
         }
-        
+  
         checkBestellingen() {
                 const dialogConfig = new MatDialogConfig();
 
@@ -84,7 +84,7 @@ export class TeamViewComponent implements OnInit {
                 };
 
                 const dialogRef = this.dialog.open(BestellingListComponent, dialogConfig);
-          
+
         }
 
         get pendingLength(): number {

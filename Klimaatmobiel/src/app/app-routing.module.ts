@@ -24,7 +24,7 @@ export const routes: Routes = [
   },
   { 
     path: 'ModuleInstance/Dashboard/:id/CreateRapport', component: RapportEndOfModuleComponent, 
-    canActivate: [AuthGuard], resolve: {moduleInstance: ModuleInstanceGuard }
+    canActivate: [AuthGuard], data: { preload: true }, resolve: {moduleInstance: ModuleInstanceGuard }
   },
 
   { path: '', redirectTo: 'User/Login', pathMatch: 'full' },

@@ -36,6 +36,7 @@ export class ScriptService {
       // resolve if already loaded
       if (this.scripts[name].loaded) {
         resolve({ script: name, loaded: true, status: 'Already Loaded' });
+        console.log('The scripts are already loaded.')
       } else {
         // load script
         const script = document.createElement('script');

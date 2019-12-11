@@ -5,7 +5,7 @@ import { Team } from 'src/app/models/team'
 import { Router, ActivatedRoute } from '@angular/router';
 import { ModuleInstanceStatus } from 'src/app/models/module-instance-status';
 import { DataService } from 'src/app/services/data.service';
-import { ScriptService } from 'src/app/views/module-instance/rapport-end-of-module/script.service';
+import { ScriptService } from 'src/app/services/script.service';
 
 declare let pdfMake: any;
 

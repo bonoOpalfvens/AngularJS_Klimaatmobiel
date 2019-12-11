@@ -5,7 +5,7 @@ import { ModuleInstanceStatus } from 'src/app/models/module-instance-status';
 import { DataService } from 'src/app/services/data.service';
 import { MatDialogConfig, MatDialog} from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component'
-import { ScriptService } from 'src/app/views/module-instance/rapport-end-of-module/script.service';
+import { ScriptService } from 'src/app/services/script.service';
 
 import { MatSnackBar } from '@angular/material';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -30,7 +30,7 @@ export class InstanceDashboardComponent implements OnInit {
     public dialog: MatDialog,
     public route: ActivatedRoute,
     public scriptService: ScriptService) {
-      this.scriptService.load('pdfMake', 'vfsFonts');
+    //  this.scriptService.load('pdfMake', 'vfsFonts');
     }
 
   ngOnInit() {

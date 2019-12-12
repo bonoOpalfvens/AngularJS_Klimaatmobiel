@@ -12,7 +12,12 @@ import {
   MatSidenavModule,
   MatSnackBarModule,
   MatOptionModule,
-  MatSelectModule
+  MatSelectModule,
+  MatToolbarModule,
+  MatDialogModule,
+  MatGridListModule,
+  MatTableModule,
+  MatBadgeModule
 } from '@angular/material';
 
 
@@ -20,7 +25,6 @@ import {
   declarations: [],
   imports: [
     CommonModule,
-
     // AngularMaterialAnimations
     BrowserAnimationsModule,
     // AngularMaterial
@@ -33,7 +37,13 @@ import {
     MatButtonModule,
     MatTooltipModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatTableModule,
+    MatDialogModule,
+    MatBadgeModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -47,7 +57,13 @@ import {
     MatButtonModule,
     MatTooltipModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatTableModule,
+    MatDialogModule,
+    MatBadgeModule
   ]
 })
 export class MaterialModule { }

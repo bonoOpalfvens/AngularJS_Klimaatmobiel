@@ -1,0 +1,25 @@
+<mat-toolbar>
+  <h1 style="margin-right: 10px;">Dashboard</h1>
+</mat-toolbar>
+<div>
+
+  <div class="container">
+    <mat-card style="display: inline-block;width: 45%; margin-right: 15px;">
+      <mat-card-title>
+        Modules
+        <button style="float: right;" color="primary" [routerLink]="['/Module/CreeerModule']" mat-raised-button>
+          <mat-icon style="margin-right: 10px;" mat-list-icon>eco</mat-icon>Creëer Module
+        </button>
+      </mat-card-title>
+      <mat-card-content>
+        <mat-form-field>
+          <mat-label>Zoek een module</mat-label>
+          <input (keyup)='filterModule$.next($event.target.value)' matInput>
+        </mat-form-field>
+        <app-klim-module-view *ngFor="let module of fetchKlimModules$ | async | moduleFilter: filterModule"
+          [deleteFunc]="this.deleteModuleFunc" [klimModule]="module">
+        </app-klim-module-view>
+      </mat-card-content>
+    </mat-card>
+    <app-module-instance-list></app-module-instance-list>
+  </div>

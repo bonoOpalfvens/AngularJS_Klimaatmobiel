@@ -1,0 +1,23 @@
+<mat-dialog-content>
+  <form [formGroup]="eigenschapForm" (ngSubmit)="onSubmit()">
+    <div>
+      <input type="file" (change)="onFileChanged($event)" required />
+    </div>
+    <mat-form-field>
+      <mat-label>
+        <mat-icon>account_balance</mat-icon> Naam
+      </mat-label>
+      <input matInput aria-label="naam" formControlName="naam" required />
+    </mat-form-field>
+
+    <div>
+      <button type="submit" matInput mat-raised-button color="primary" [disabled]="eigenschapForm.get('naam').errors">
+        <mat-icon>save</mat-icon>
+        Opslaan
+      </button>
+      <button type="button" mat-raised-button mat-dialog-close color="warn" style="float: right">
+        <mat-icon>cancel</mat-icon>Annuleer
+      </button>
+    </div>
+  </form>
+</mat-dialog-content>

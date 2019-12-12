@@ -1,0 +1,7 @@
+<mat-dialog-content style="margin-top: 10px;">
+    {{message}}
+  <div style="margin-top: 30px; margin-bottom: 10px;">
+    <button mat-raised-button color="primary" style="width: 100px;" [mat-dialog-close]="true" cdkFocusInitial><mat-icon>done</mat-icon> Ja</button>
+    <button mat-raised-button color="warn" style="width: 100px;" (click)="onNoClick()" style="float: right;"><mat-icon>cancel</mat-icon> Nee</button>
+  </div>
+</mat-dialog-content>

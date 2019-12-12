@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationModule } from './navigation/navigation.module';
 import { UserModule } from './user/user.module';
+import { MaterialModule } from '../material.module';
+import { KlimModuleModule } from './klim-module/klim-module.module';
+import { ModuleInstanceModule } from './module-instance/module-instance.module';
 
 
 
@@ -10,11 +13,16 @@ import { UserModule } from './user/user.module';
   imports: [
     CommonModule,
     NavigationModule,
-    UserModule
+    MaterialModule,
+    UserModule,
+    KlimModuleModule,
+    ModuleInstanceModule
   ],
   exports: [
     NavigationModule,
-    UserModule
+    UserModule,
+    KlimModuleModule,
+    ModuleInstanceModule
   ]
 })
 export class ViewsModule { }

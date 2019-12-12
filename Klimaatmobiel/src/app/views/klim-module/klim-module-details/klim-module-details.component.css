@@ -1,0 +1,68 @@
+.container {
+    margin-top: 50px;
+    width: 100% !important;
+}
+
+.padLeft {
+    padding-left: 20px;
+    
+}
+
+#editButton {
+    color: var(--go-donkergrijs);
+}
+
+#addEigenschap {
+    color: var(--text-green);
+}   
+
+mat-card{
+    background: var(--background-light);
+}
+
+mat-card-title{
+    color: var(--text-green);
+    font-weight: bold;
+}
+
+button[type="submit"]+button {
+    float: right;
+}
+
+button[color="primary"] {
+    background-color: var(--text-green);
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+img {
+    width: 40px;
+    height: 40px;
+    margin-top: 20px;
+}
+
+.shop {
+    width: 100%;
+    text-align: left;
+}
+
+.shop>thead>th {
+    color: var(--text-green);
+    font-size: 1.1em;
+    padding-bottom: 10px !important;
+}
+
+.shop>tr>td:first-child, .shop>thead>th:first-child {
+    padding-left: 10px;
+}
+
+.shop>tr:nth-child(even){
+    background: var(--go-lichtgrijs);
+}
+
+.shop>tr>td {
+    width: 20%;
+    line-height: 40px;
+}

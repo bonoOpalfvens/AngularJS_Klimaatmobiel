@@ -10,6 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
   @Output() public newUser = new EventEmitter();
   public user: FormGroup;
@@ -39,7 +40,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         val => {
           if (val) {
-            this.router.navigate(['/Home']);
+            this.router.navigate(['/Module/Lijst']);
             this.snackBar.open(
               `Hallo, ${this.user.value.email}`,
               'Sluit',

@@ -1,0 +1,6 @@
+mat-card {
+    margin-bottom: 15px;
+}
+button[color="primary"] {
+    background-color: var(--text-green);
+}

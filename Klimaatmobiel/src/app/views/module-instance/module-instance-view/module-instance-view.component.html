@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{moduleInstance.klimModule.moduleNaam}}</mat-card-title>
+    <mat-card-subtitle>
+      <b>Status: </b>{{moduleInstance.statusString}} <br>
+      <b>StartDatum: </b>{{moduleInstance.startDatum? moduleInstance.startDatum : "onbekend"}} <br>
+      <b>EindDatum: </b>{{moduleInstance.eindDatum? moduleInstance.eindDatum : "onbekend"}} <br>
+      <b>Aantal teams: </b>{{moduleInstance.aantalTeams}} <br>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions style="text-align: right;">
+    <button mat-flat-button color="primary" click="onDashboard()"
+      [routerLink]="['/ModuleInstance/Dashboard', moduleInstance.id]">Naar dashboard</button>
+  </mat-card-actions>
+</mat-card>

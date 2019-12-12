@@ -7,9 +7,10 @@ import { DataService } from './data.service';
   providedIn: 'root'
 })
 export class AuthorisationService {
+  // tslint:disable: variable-name
   private readonly tokenKey = 'currentUser';
   private readonly emailKey = 'email';
-  private user$: BehaviorSubject<string>;
+  private _user$: BehaviorSubject<string>;
 
   constructor(private dataService: DataService) {
     let parsedToken = parseJwt(localStorage.getItem(this.tokenKey));
@@ -22,13 +23,13 @@ export class AuthorisationService {
         parsedToken = null;
       }
     }
-    this.user$ = new BehaviorSubject<string>(
+    this._user$ = new BehaviorSubject<string>(
       localStorage.getItem(this.emailKey)
     );
   }
 
-  get User$(): BehaviorSubject<string> {
-    return this.user$;
+  get user$(): BehaviorSubject<string> {
+    return this._user$;
   }
 
   get token(): string {
@@ -49,7 +50,7 @@ export class AuthorisationService {
         if (token) {
           localStorage.setItem(this.tokenKey, token);
           localStorage.setItem(this.emailKey, email);
-          this.user$.next(email);
+          this._user$.next(email);
           return true;
         }
         return false;

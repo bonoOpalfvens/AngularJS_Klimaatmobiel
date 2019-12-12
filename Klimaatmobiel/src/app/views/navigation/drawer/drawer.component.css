@@ -2,7 +2,7 @@
   height: 100%;
   position: fixed;
   left: 0;
-  z-index: 10;
+  z-index: 11;
 }
 
 .mat-drawer {
@@ -10,12 +10,13 @@
 }
 
 .active {
-  background-color: #3c4b9c !important;
+  background-color: var(--background-mediumdark) !important;
 }
 
 .content {
     margin-left: 70px;
     padding-top: 20px;
+    padding-right: 5px;
 }
 
 mat-list-item {

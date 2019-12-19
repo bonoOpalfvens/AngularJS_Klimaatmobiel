@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  apiUrl: 'https://localhost:44303/api',
+  apiUrl: 'https://klimapi.azurewebsites.net/api',
   production: false
 };
 

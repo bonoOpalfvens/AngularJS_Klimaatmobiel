@@ -73,18 +73,18 @@ export class TeamViewComponent implements OnInit {
                         }
                 })
         }
-        
+  
         checkBestellingen() {
                 const dialogConfig = new MatDialogConfig();
 
                 dialogConfig.disableClose = false;
 
                 dialogConfig.data = {
-                        bestellingen: this.team.bestellingen, team: this.team
+                        team: this.team
                 };
 
                 const dialogRef = this.dialog.open(BestellingListComponent, dialogConfig);
-          
+
         }
 
         get pendingLength(): number {

@@ -5,7 +5,7 @@ import { Team } from 'src/app/models/team'
 import { Router, ActivatedRoute } from '@angular/router';
 import { ModuleInstanceStatus } from 'src/app/models/module-instance-status';
 import { DataService } from 'src/app/services/data.service';
-import { ScriptService } from 'src/app/views/module-instance/rapport-end-of-module/script.service';
+import { ScriptService } from 'src/app/services/script.service';
 
 declare let pdfMake: any;
 
@@ -30,7 +30,9 @@ export class RapportEndOfModuleComponent implements OnInit {
       this.moduleInstance = item.moduleInstance
     )
     console.log(this.moduleInstance);
-    this.load()
+    setTimeout(() => {
+      this.load();
+    }, 1000);
   }
 
   placePdfInPage(){
@@ -64,7 +66,6 @@ export class RapportEndOfModuleComponent implements OnInit {
       case 'open': pdfMake.createPdf(documentDefinition).open(); break;
       case 'print': pdfMake.createPdf(documentDefinition).print(); break;
       case 'download': pdfMake.createPdf(documentDefinition).download(); break;
-
       default: pdfMake.createPdf(documentDefinition).open(); break;
     }
   }

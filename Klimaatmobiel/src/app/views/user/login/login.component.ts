@@ -4,6 +4,7 @@ import { AuthorisationService } from 'src/app/services/authorisation.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ScriptService } from 'src/app/services/script.service';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +20,10 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthorisationService,
     private router: Router,
-    private snackBar: MatSnackBar
-  ) {}
+    private snackBar: MatSnackBar,
+    private scriptService: ScriptService
+  ) {
+  }
 
   ngOnInit() {
     this.user = this.fb.group({
@@ -41,6 +44,8 @@ export class LoginComponent implements OnInit {
         val => {
           if (val) {
             this.router.navigate(['/Module/Lijst']);
+            console.log('Loading External Scripts');
+            this.scriptService.load('pdfMake', 'vfsFonts');
             this.snackBar.open(
               `Hallo, ${this.user.value.email}`,
               'Sluit',
